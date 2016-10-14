@@ -417,8 +417,74 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}
 </style>
+<style>
+.listingblock .pygments .hll { background-color: #49483e }
+.listingblock .pygments, .listingblock .pygments code { background: #272822; color: #f8f8f2 }
+.listingblock .pygments .tok-c { color: #75715e } /* Comment */
+.listingblock .pygments .tok-err { color: #960050; background-color: #1e0010 } /* Error */
+.listingblock .pygments .tok-k { color: #66d9ef } /* Keyword */
+.listingblock .pygments .tok-l { color: #ae81ff } /* Literal */
+.listingblock .pygments .tok-n { color: #f8f8f2 } /* Name */
+.listingblock .pygments .tok-o { color: #f92672 } /* Operator */
+.listingblock .pygments .tok-p { color: #f8f8f2 } /* Punctuation */
+.listingblock .pygments .tok-cm { color: #75715e } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #75715e } /* Comment.Preproc */
+.listingblock .pygments .tok-c1 { color: #75715e } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #75715e } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #f92672 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gi { color: #a6e22e } /* Generic.Inserted */
+.listingblock .pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #75715e } /* Generic.Subheading */
+.listingblock .pygments .tok-kc { color: #66d9ef } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #66d9ef } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #f92672 } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #66d9ef } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #66d9ef } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #66d9ef } /* Keyword.Type */
+.listingblock .pygments .tok-ld { color: #e6db74 } /* Literal.Date */
+.listingblock .pygments .tok-m { color: #ae81ff } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #e6db74 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #a6e22e } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #f8f8f2 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #a6e22e } /* Name.Class */
+.listingblock .pygments .tok-no { color: #66d9ef } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #a6e22e } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #f8f8f2 } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #a6e22e } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #a6e22e } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #f8f8f2 } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #f8f8f2 } /* Name.Namespace */
+.listingblock .pygments .tok-nx { color: #a6e22e } /* Name.Other */
+.listingblock .pygments .tok-py { color: #f8f8f2 } /* Name.Property */
+.listingblock .pygments .tok-nt { color: #f92672 } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #f8f8f2 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #f92672 } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #f8f8f2 } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #ae81ff } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #ae81ff } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #ae81ff } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #ae81ff } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #ae81ff } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sb { color: #e6db74 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #e6db74 } /* Literal.String.Char */
+.listingblock .pygments .tok-sd { color: #e6db74 } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #e6db74 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #ae81ff } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #e6db74 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #e6db74 } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #e6db74 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #e6db74 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #e6db74 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #e6db74 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #f8f8f2 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-vc { color: #f8f8f2 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #f8f8f2 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #f8f8f2 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-il { color: #ae81ff } /* Literal.Number.Integer.Long */
+</style>
 </head>
-<body class="article">
+<body class="book">
 <div id="header">
 <h1>Programming Ruby</h1>
 </div>
@@ -459,7 +525,7 @@ simplifies the installation to the "windows standard approach".</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ brew install ruby</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nv">$ </span>brew install ruby</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -489,7 +555,7 @@ specify the whole path to the executable. With tools like <code>rbenv</code> thi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ ruby -v</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nv">$ </span>ruby -v</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -498,7 +564,7 @@ works as expected.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ ruby script.rb</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nv">$ </span>ruby script.rb</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -507,7 +573,7 @@ add the shebang line to your script</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>#!/usr/bin/env ruby</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-c">#!/usr/bin/env ruby</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -521,7 +587,7 @@ and see results instantly.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>$ irb</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nv">$ </span>irb</code></pre>
 </div>
 </div>
 </div>
@@ -564,10 +630,10 @@ Ruby will complain, unless such operation is explicitly provided.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>irb(main):001:0&gt; 5 + "a"
-TypeError: String can't be coerced into Fixnum
-	from (irb):1:in `+'
-	from (irb):1</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">001</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-mi">5</span> <span class="tok-o">+</span> <span class="tok-s2">&quot;a&quot;</span>
+<span class="tok-ss">TypeError</span><span class="tok-p">:</span> <span class="tok-nb">String</span> <span class="tok-n">can</span><span class="tok-s1">&#39;t be coerced into Fixnum</span>
+<span class="tok-s1">	from (irb):1:in `+&#39;</span>
+	<span class="tok-n">from</span> <span class="tok-p">(</span><span class="tok-n">irb</span><span class="tok-p">):</span><span class="tok-mi">1</span></code></pre>
 </div>
 </div>
 </div>
@@ -579,7 +645,7 @@ no explicitly type information in the code.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">a = "string"</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;string&quot;</span></code></pre>
 </div>
 </div>
 </div>
@@ -623,7 +689,7 @@ no explicitly type information in the code.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">puts("hello world!");</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-nb">puts</span><span class="tok-p">(</span><span class="tok-s2">&quot;hello world!&quot;</span><span class="tok-p">);</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -632,7 +698,7 @@ expression</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">puts "hello world!";</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-nb">puts</span> <span class="tok-s2">&quot;hello world!&quot;</span><span class="tok-p">;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -640,7 +706,7 @@ expression</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">puts "hello world!"</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-nb">puts</span> <span class="tok-s2">&quot;hello world!&quot;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -649,12 +715,12 @@ string substitution as quotations marks do.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">irb(main):001:0&gt; a = 'Hello'
-=&gt; "Hello"
-irb(main):002:0&gt; b = "#{a} world"
-=&gt; "Hello world"
-irb(main):003:0&gt; b = '#{a} world'
-=&gt; "\#{a} world"</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">001</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-s1">&#39;Hello&#39;</span>
+<span class="tok-o">=&gt;</span> <span class="tok-s2">&quot;Hello&quot;</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">002</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;</span><span class="tok-si">#{</span><span class="tok-n">a</span><span class="tok-si">}</span><span class="tok-s2"> world&quot;</span>
+<span class="tok-o">=&gt;</span> <span class="tok-s2">&quot;Hello world&quot;</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">003</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-s1">&#39;#{a} world&#39;</span>
+<span class="tok-o">=&gt;</span> <span class="tok-s2">&quot;</span><span class="tok-se">\#</span><span class="tok-s2">{a} world&quot;</span></code></pre>
 </div>
 </div>
 <div class="sect2">
@@ -678,9 +744,9 @@ irb(main):003:0&gt; b = '#{a} world'
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">1.even?                 # =&gt; false
-"ruby".upcase.reverse   # =&gt; 'YBUR'
-"ruby".size.even?       # =&gt; true</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-mi">1</span><span class="tok-o">.</span><span class="tok-n">even?</span>                 <span class="tok-c1"># =&gt; false</span>
+<span class="tok-s2">&quot;ruby&quot;</span><span class="tok-o">.</span><span class="tok-n">upcase</span><span class="tok-o">.</span><span class="tok-n">reverse</span>   <span class="tok-c1"># =&gt; &#39;YBUR&#39;</span>
+<span class="tok-s2">&quot;ruby&quot;</span><span class="tok-o">.</span><span class="tok-n">size</span><span class="tok-o">.</span><span class="tok-n">even?</span>       <span class="tok-c1"># =&gt; true</span></code></pre>
 </div>
 </div>
 </div>
@@ -693,10 +759,10 @@ comment every line with single line comment.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby"># you should
-# do this
-# to comment
-# multiple lines</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-c1"># you should</span>
+<span class="tok-c1"># do this</span>
+<span class="tok-c1"># to comment</span>
+<span class="tok-c1"># multiple lines</span></code></pre>
 </div>
 </div>
 </div>
@@ -716,8 +782,8 @@ However there are special syntax shorthands to create instances of special class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">a = "string"
-b = 'string'</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;string&quot;</span>
+<span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-s1">&#39;string&#39;</span></code></pre>
 </div>
 </div>
 </div>
@@ -728,14 +794,14 @@ b = 'string'</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">irb(main):001:0&gt; a = 1
-=&gt; 1
-irb(main):002:0&gt; a.class
-=&gt; Fixnum
-irb(main):003:0&gt; b = 1.1
-=&gt; 1.1
-irb(main):004:0&gt; b.class
-=&gt; Float</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">001</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-mi">1</span>
+<span class="tok-o">=&gt;</span> <span class="tok-mi">1</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">002</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">a</span><span class="tok-o">.</span><span class="tok-n">class</span>
+<span class="tok-o">=&gt;</span> <span class="tok-no">Fixnum</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">003</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-mi">1</span><span class="tok-o">.</span><span class="tok-mi">1</span>
+<span class="tok-o">=&gt;</span> <span class="tok-mi">1</span><span class="tok-o">.</span><span class="tok-mi">1</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">004</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">b</span><span class="tok-o">.</span><span class="tok-n">class</span>
+<span class="tok-o">=&gt;</span> <span class="tok-nb">Float</span></code></pre>
 </div>
 </div>
 </div>
@@ -746,8 +812,8 @@ irb(main):004:0&gt; b.class
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">irb(main):001:0&gt; a = nil
-=&gt; nil</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">001</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-kp">nil</span>
+<span class="tok-o">=&gt;</span> <span class="tok-kp">nil</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -762,14 +828,14 @@ values that are not considered true.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">irb(main):001:0&gt; a = true
-=&gt; true
-irb(main):002:0&gt; b = false
-=&gt; false
-irb(main):003:0&gt; a &amp;&amp; b
-=&gt; false
-irb(main):004:0&gt; a || b
-=&gt; true</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">001</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-kp">true</span>
+<span class="tok-o">=&gt;</span> <span class="tok-kp">true</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">002</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-kp">false</span>
+<span class="tok-o">=&gt;</span> <span class="tok-kp">false</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">003</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">a</span> <span class="tok-o">&amp;&amp;</span> <span class="tok-n">b</span>
+<span class="tok-o">=&gt;</span> <span class="tok-kp">false</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">004</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">a</span> <span class="tok-o">||</span> <span class="tok-n">b</span>
+<span class="tok-o">=&gt;</span> <span class="tok-kp">true</span></code></pre>
 </div>
 </div>
 </div>
@@ -781,8 +847,8 @@ be in a single array.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">irb(main):001:0&gt; ["a", 1, true]
-=&gt; ["a", 1, true]</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">001</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-o">[</span><span class="tok-s2">&quot;a&quot;</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-kp">true</span><span class="tok-o">]</span>
+<span class="tok-o">=&gt;</span> <span class="tok-o">[</span><span class="tok-s2">&quot;a&quot;</span><span class="tok-p">,</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-kp">true</span><span class="tok-o">]</span></code></pre>
 </div>
 </div>
 </div>
@@ -793,8 +859,8 @@ be in a single array.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">irb(main):001:0&gt; {"a" =&gt; true, "b": false}
-=&gt; {"a"=&gt;true, :b=&gt;false}</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">001</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-p">{</span><span class="tok-s2">&quot;a&quot;</span> <span class="tok-o">=&gt;</span> <span class="tok-kp">true</span><span class="tok-p">,</span> <span class="tok-s2">&quot;b&quot;</span><span class="tok-p">:</span> <span class="tok-kp">false</span><span class="tok-p">}</span>
+<span class="tok-o">=&gt;</span> <span class="tok-p">{</span><span class="tok-s2">&quot;a&quot;</span><span class="tok-o">=&gt;</span><span class="tok-kp">true</span><span class="tok-p">,</span> <span class="tok-ss">:b</span><span class="tok-o">=&gt;</span><span class="tok-kp">false</span><span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -802,7 +868,7 @@ be in a single array.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>key =&gt; value</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">key</span> <span class="tok-o">=&gt;</span> <span class="tok-n">value</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -810,7 +876,7 @@ be in a single array.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code>key: value</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-ss">key</span><span class="tok-p">:</span> <span class="tok-n">value</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -827,22 +893,22 @@ coding guidelines recommend (and enforce) using <code>rockets</code> everywhere.
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">irb(main):001:0&gt; a = "a"
-=&gt; "a"
-irb(main):002:0&gt; b = "a"
-=&gt; "a"
-irb(main):003:0&gt; a.object_id
-=&gt; 70224766839340
-irb(main):004:0&gt; b.object_id
-=&gt; 70224750415480
-irb(main):005:0&gt; a = :a
-=&gt; :a
-irb(main):006:0&gt; b = :a
-=&gt; :a
-irb(main):007:0&gt; a.object_id
-=&gt; 722268
-irb(main):008:0&gt; b.object_id
-=&gt; 722268</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">001</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;a&quot;</span>
+<span class="tok-o">=&gt;</span> <span class="tok-s2">&quot;a&quot;</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">002</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;a&quot;</span>
+<span class="tok-o">=&gt;</span> <span class="tok-s2">&quot;a&quot;</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">003</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">a</span><span class="tok-o">.</span><span class="tok-n">object_id</span>
+<span class="tok-o">=&gt;</span> <span class="tok-mi">70224766839340</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">004</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">b</span><span class="tok-o">.</span><span class="tok-n">object_id</span>
+<span class="tok-o">=&gt;</span> <span class="tok-mi">70224750415480</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">005</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-ss">:a</span>
+<span class="tok-o">=&gt;</span> <span class="tok-ss">:a</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">006</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-ss">:a</span>
+<span class="tok-o">=&gt;</span> <span class="tok-ss">:a</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">007</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">a</span><span class="tok-o">.</span><span class="tok-n">object_id</span>
+<span class="tok-o">=&gt;</span> <span class="tok-mi">722268</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">00</span><span class="tok-mi">8</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-n">b</span><span class="tok-o">.</span><span class="tok-n">object_id</span>
+<span class="tok-o">=&gt;</span> <span class="tok-mi">722268</span></code></pre>
 </div>
 </div>
 </div>
@@ -856,14 +922,14 @@ irb(main):008:0&gt; b.object_id
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">irb(main):001:0&gt; 3 + 3
-=&gt; 6
-irb(main):002:0&gt; 3.+(3)
-=&gt; 6
-irb(main):003:0&gt; [1,2][0]
-=&gt; 1
-irb(main):004:0&gt; [1,2].[](0)
-=&gt; 1</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">001</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-mi">3</span> <span class="tok-o">+</span> <span class="tok-mi">3</span>
+<span class="tok-o">=&gt;</span> <span class="tok-mi">6</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">002</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-mi">3</span><span class="tok-o">.</span><span class="tok-n">+</span><span class="tok-p">(</span><span class="tok-mi">3</span><span class="tok-p">)</span>
+<span class="tok-o">=&gt;</span> <span class="tok-mi">6</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">003</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-o">][</span><span class="tok-mi">0</span><span class="tok-o">]</span>
+<span class="tok-o">=&gt;</span> <span class="tok-mi">1</span>
+<span class="tok-n">irb</span><span class="tok-p">(</span><span class="tok-n">main</span><span class="tok-p">):</span><span class="tok-mo">004</span><span class="tok-p">:</span><span class="tok-mi">0</span><span class="tok-o">&gt;</span> <span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-o">].</span><span class="tok-n">[</span><span class="tok-o">]</span><span class="tok-p">(</span><span class="tok-mi">0</span><span class="tok-p">)</span>
+<span class="tok-o">=&gt;</span> <span class="tok-mi">1</span></code></pre>
 </div>
 </div>
 </div>
@@ -876,7 +942,7 @@ irb(main):004:0&gt; [1,2].[](0)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">$stdout</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-vg">$stdout</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -884,7 +950,7 @@ irb(main):004:0&gt; [1,2].[](0)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">@@class_variables = 1</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-vc">@@class_variables</span> <span class="tok-o">=</span> <span class="tok-mi">1</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -892,7 +958,7 @@ irb(main):004:0&gt; [1,2].[](0)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">@instance_variable = 1</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-vi">@instance_variable</span> <span class="tok-o">=</span> <span class="tok-mi">1</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -900,7 +966,7 @@ irb(main):004:0&gt; [1,2].[](0)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">local_variable = 1</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">local_variable</span> <span class="tok-o">=</span> <span class="tok-mi">1</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -908,7 +974,7 @@ irb(main):004:0&gt; [1,2].[](0)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">CONSTANT = 1</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-no">CONSTANT</span> <span class="tok-o">=</span> <span class="tok-mi">1</span></code></pre>
 </div>
 </div>
 </div>
@@ -921,16 +987,16 @@ irb(main):004:0&gt; [1,2].[](0)
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">a = nil
-b = ""
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-kp">nil</span>
+<span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;&quot;</span>
 
-if a
-  "we do not get in here"
-elsif b
-  "we got here"
-else
-  "we did not get here"
-end</code></pre>
+<span class="tok-k">if</span> <span class="tok-n">a</span>
+  <span class="tok-s2">&quot;we do not get in here&quot;</span>
+<span class="tok-k">elsif</span> <span class="tok-n">b</span>
+  <span class="tok-s2">&quot;we got here&quot;</span>
+<span class="tok-k">else</span>
+  <span class="tok-s2">&quot;we did not get here&quot;</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -939,16 +1005,16 @@ equivalent to <code>if !(bool_expr)</code>. It is used the same way as normal <c
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">a = nil
-b = ""
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">a</span> <span class="tok-o">=</span> <span class="tok-kp">nil</span>
+<span class="tok-n">b</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;&quot;</span>
 
-unless a
-  "we do get in here"
-elsif b
-  "we did not get here"
-else
-  "we did not get here"
-end</code></pre>
+<span class="tok-k">unless</span> <span class="tok-n">a</span>
+  <span class="tok-s2">&quot;we do get in here&quot;</span>
+<span class="tok-k">elsif</span> <span class="tok-n">b</span>
+  <span class="tok-s2">&quot;we did not get here&quot;</span>
+<span class="tok-k">else</span>
+  <span class="tok-s2">&quot;we did not get here&quot;</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -956,8 +1022,8 @@ end</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">puts "Hello" if true
-puts "Hello" unless false</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-nb">puts</span> <span class="tok-s2">&quot;Hello&quot;</span> <span class="tok-k">if</span> <span class="tok-kp">true</span>
+<span class="tok-nb">puts</span> <span class="tok-s2">&quot;Hello&quot;</span> <span class="tok-k">unless</span> <span class="tok-kp">false</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -965,7 +1031,7 @@ puts "Hello" unless false</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">experssion ? 'was evaluated true' : 'was evaluated false'</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">experssion</span> <span class="tok-p">?</span> <span class="tok-s1">&#39;was evaluated true&#39;</span> <span class="tok-p">:</span> <span class="tok-s1">&#39;was evaluated false&#39;</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -973,14 +1039,14 @@ puts "Hello" unless false</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">case input
-  when 'q', 'e'
-    quit
-  when 'f'
-    format
-  else
-    help
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">case</span> <span class="tok-n">input</span>
+  <span class="tok-k">when</span> <span class="tok-s1">&#39;q&#39;</span><span class="tok-p">,</span> <span class="tok-s1">&#39;e&#39;</span>
+    <span class="tok-n">quit</span>
+  <span class="tok-k">when</span> <span class="tok-s1">&#39;f&#39;</span>
+    <span class="tok-nb">format</span>
+  <span class="tok-k">else</span>
+    <span class="tok-n">help</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -988,14 +1054,14 @@ end</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">case var
-  when String
-    "it's string"
-  when Class
-    "it's class"
-  when Number
-    "it's number"
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">case</span> <span class="tok-n">var</span>
+  <span class="tok-k">when</span> <span class="tok-nb">String</span>
+    <span class="tok-s2">&quot;it&#39;s string&quot;</span>
+  <span class="tok-k">when</span> <span class="tok-no">Class</span>
+    <span class="tok-s2">&quot;it&#39;s class&quot;</span>
+  <span class="tok-k">when</span> <span class="tok-no">Number</span>
+    <span class="tok-s2">&quot;it&#39;s number&quot;</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1003,12 +1069,12 @@ end</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">case
-  when a == "a"
-    "a equals a"
-  when b == "b"
-    "b equals b"
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">case</span>
+  <span class="tok-k">when</span> <span class="tok-n">a</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;a&quot;</span>
+    <span class="tok-s2">&quot;a equals a&quot;</span>
+  <span class="tok-k">when</span> <span class="tok-n">b</span> <span class="tok-o">==</span> <span class="tok-s2">&quot;b&quot;</span>
+    <span class="tok-s2">&quot;b equals b&quot;</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 </div>
@@ -1075,9 +1141,9 @@ operator.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">string = 'localhost:2000'
-string =~ /.*:.+/     # 0
-string =~ /(.)*:(.)+/ # sets $1 a $2</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">string</span> <span class="tok-o">=</span> <span class="tok-s1">&#39;localhost:2000&#39;</span>
+<span class="tok-n">string</span> <span class="tok-o">=~</span> <span class="tok-sr">/.*:.+/</span>     <span class="tok-c1"># 0</span>
+<span class="tok-n">string</span> <span class="tok-o">=~</span> <span class="tok-sr">/(.)*:(.)+/</span> <span class="tok-c1"># sets $1 a $2</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1085,9 +1151,9 @@ string =~ /(.)*:(.)+/ # sets $1 a $2</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">data = string.match(/^(.):(\d+)$/)
-data[1] # =&gt; localhost
-data[2] # =&gt; 2000</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">data</span> <span class="tok-o">=</span> <span class="tok-n">string</span><span class="tok-o">.</span><span class="tok-n">match</span><span class="tok-p">(</span><span class="tok-sr">/^(.):(\d+)$/</span><span class="tok-p">)</span>
+<span class="tok-n">data</span><span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-o">]</span> <span class="tok-c1"># =&gt; localhost</span>
+<span class="tok-n">data</span><span class="tok-o">[</span><span class="tok-mi">2</span><span class="tok-o">]</span> <span class="tok-c1"># =&gt; 2000</span></code></pre>
 </div>
 </div>
 </div>
@@ -1100,9 +1166,9 @@ data[2] # =&gt; 2000</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">while a &lt; b
-  a += 1
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">while</span> <span class="tok-n">a</span> <span class="tok-o">&lt;</span> <span class="tok-n">b</span>
+  <span class="tok-n">a</span> <span class="tok-o">+=</span> <span class="tok-mi">1</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1110,9 +1176,9 @@ end</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">begin
-  a += 1
-end while a &lt; b</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">begin</span>
+  <span class="tok-n">a</span> <span class="tok-o">+=</span> <span class="tok-mi">1</span>
+<span class="tok-k">end</span> <span class="tok-k">while</span> <span class="tok-n">a</span> <span class="tok-o">&lt;</span> <span class="tok-n">b</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1120,7 +1186,7 @@ end while a &lt; b</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">a += 1 while a &lt; b</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">a</span> <span class="tok-o">+=</span> <span class="tok-mi">1</span> <span class="tok-k">while</span> <span class="tok-n">a</span> <span class="tok-o">&lt;</span> <span class="tok-n">b</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1128,9 +1194,9 @@ end while a &lt; b</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">until a &gt; b
-  a += 1
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">until</span> <span class="tok-n">a</span> <span class="tok-o">&gt;</span> <span class="tok-n">b</span>
+  <span class="tok-n">a</span> <span class="tok-o">+=</span> <span class="tok-mi">1</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 </div>
@@ -1145,21 +1211,21 @@ Return as usual returns from method and ends the execution of the method.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby"># Simple method with two arguments
-def mth(a, b)
-end
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-c1"># Simple method with two arguments</span>
+<span class="tok-k">def</span> <span class="tok-nf">mth</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span><span class="tok-p">)</span>
+<span class="tok-k">end</span>
 
-# Method with default value for 2nd argument
-def mth(a, b=1)
-end
+<span class="tok-c1"># Method with default value for 2nd argument</span>
+<span class="tok-k">def</span> <span class="tok-nf">mth</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span><span class="tok-o">=</span><span class="tok-mi">1</span><span class="tok-p">)</span>
+<span class="tok-k">end</span>
 
-# Method accepting any number of arguments, available as Array args
-def mth(*args)
-end
+<span class="tok-c1"># Method accepting any number of arguments, available as Array args</span>
+<span class="tok-k">def</span> <span class="tok-nf">mth</span><span class="tok-p">(</span><span class="tok-o">*</span><span class="tok-n">args</span><span class="tok-p">)</span>
+<span class="tok-k">end</span>
 
-# Method requiring at least two arguments
-def mth(a, b, *args)
-end</code></pre>
+<span class="tok-c1"># Method requiring at least two arguments</span>
+<span class="tok-k">def</span> <span class="tok-nf">mth</span><span class="tok-p">(</span><span class="tok-n">a</span><span class="tok-p">,</span> <span class="tok-n">b</span><span class="tok-p">,</span> <span class="tok-o">*</span><span class="tok-n">args</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 </div>
@@ -1190,10 +1256,10 @@ single element in the array.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">arr = [1,2,3,4]
-arr.each do |el|
-  puts el
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">arr</span> <span class="tok-o">=</span> <span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-o">]</span>
+<span class="tok-n">arr</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-k">do</span> <span class="tok-o">|</span><span class="tok-n">el</span><span class="tok-o">|</span>
+  <span class="tok-nb">puts</span> <span class="tok-n">el</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1201,8 +1267,8 @@ end</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">arr = [1,2,3,4]
-arr.each { |el| puts el }</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">arr</span> <span class="tok-o">=</span> <span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-o">]</span>
+<span class="tok-n">arr</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-p">{</span> <span class="tok-o">|</span><span class="tok-n">el</span><span class="tok-o">|</span> <span class="tok-nb">puts</span> <span class="tok-n">el</span> <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1213,9 +1279,9 @@ arr.each { |el| puts el }</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">sum = 0
-arr = [1,2,3,4]
-arr.each { |el| sum += el }</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">sum</span> <span class="tok-o">=</span> <span class="tok-mi">0</span>
+<span class="tok-n">arr</span> <span class="tok-o">=</span> <span class="tok-o">[</span><span class="tok-mi">1</span><span class="tok-p">,</span><span class="tok-mi">2</span><span class="tok-p">,</span><span class="tok-mi">3</span><span class="tok-p">,</span><span class="tok-mi">4</span><span class="tok-o">]</span>
+<span class="tok-n">arr</span><span class="tok-o">.</span><span class="tok-n">each</span> <span class="tok-p">{</span> <span class="tok-o">|</span><span class="tok-n">el</span><span class="tok-o">|</span> <span class="tok-n">sum</span> <span class="tok-o">+=</span> <span class="tok-n">el</span> <span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1223,10 +1289,10 @@ arr.each { |el| sum += el }</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">def mth
-  return nil unless block_given?
-  yield
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">def</span> <span class="tok-nf">mth</span>
+  <span class="tok-k">return</span> <span class="tok-kp">nil</span> <span class="tok-k">unless</span> <span class="tok-nb">block_given?</span>
+  <span class="tok-k">yield</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1238,9 +1304,9 @@ argument and the return value of the block will be return from the method.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">def mth(num,&amp;block)
-  block.call(num)
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">def</span> <span class="tok-nf">mth</span><span class="tok-p">(</span><span class="tok-n">num</span><span class="tok-p">,</span><span class="tok-o">&amp;</span><span class="tok-n">block</span><span class="tok-p">)</span>
+  <span class="tok-n">block</span><span class="tok-o">.</span><span class="tok-n">call</span><span class="tok-p">(</span><span class="tok-n">num</span><span class="tok-p">)</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1258,13 +1324,13 @@ is an instance of class that inherits from Class. Object can have methods</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">class Hello
-  def say
-    "Hello, world!"
-  end
-end
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">class</span> <span class="tok-nc">Hello</span>
+  <span class="tok-k">def</span> <span class="tok-nf">say</span>
+    <span class="tok-s2">&quot;Hello, world!&quot;</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-puts Hello.new.say</code></pre>
+<span class="tok-nb">puts</span> <span class="tok-no">Hello</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-o">.</span><span class="tok-n">say</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1272,17 +1338,17 @@ puts Hello.new.say</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">class Hello
-  def initialize(msg=nil)
-    @msg = msg
-  end
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">class</span> <span class="tok-nc">Hello</span>
+  <span class="tok-k">def</span> <span class="tok-nf">initialize</span><span class="tok-p">(</span><span class="tok-n">msg</span><span class="tok-o">=</span><span class="tok-kp">nil</span><span class="tok-p">)</span>
+    <span class="tok-vi">@msg</span> <span class="tok-o">=</span> <span class="tok-n">msg</span>
+  <span class="tok-k">end</span>
 
-  def say
-    @msg
-  end
-end
+  <span class="tok-k">def</span> <span class="tok-nf">say</span>
+    <span class="tok-vi">@msg</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-puts Hello.new("Hello, world!").say</code></pre>
+<span class="tok-nb">puts</span> <span class="tok-no">Hello</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-s2">&quot;Hello, world!&quot;</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">say</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1291,11 +1357,11 @@ Attributes can be either read-only, write-only or both.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">class Hello
-  attr_reader :one       # allows reading by using the .one method
-  attr_writer :two       # allows writing by using the .two = "xy" method
-  attr_accessor :three   # allows both, reading and writing
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">class</span> <span class="tok-nc">Hello</span>
+  <span class="tok-kp">attr_reader</span> <span class="tok-ss">:one</span>       <span class="tok-c1"># allows reading by using the .one method</span>
+  <span class="tok-kp">attr_writer</span> <span class="tok-ss">:two</span>       <span class="tok-c1"># allows writing by using the .two = &quot;xy&quot; method</span>
+  <span class="tok-kp">attr_accessor</span> <span class="tok-ss">:three</span>   <span class="tok-c1"># allows both, reading and writing</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 </div>
@@ -1309,26 +1375,26 @@ can be overridden by children. <code>super</code> is then used to call the origi
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">class A
-  def a
-    "hello"
-  end
-end
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">class</span> <span class="tok-nc">A</span>
+  <span class="tok-k">def</span> <span class="tok-nf">a</span>
+    <span class="tok-s2">&quot;hello&quot;</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-puts A.new.a # =&gt; hello
+<span class="tok-nb">puts</span> <span class="tok-n">A</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-o">.</span><span class="tok-n">a</span> <span class="tok-c1"># =&gt; hello</span>
 
-class B &lt; A
-end
+<span class="tok-k">class</span> <span class="tok-nc">B</span> <span class="tok-o">&lt;</span> <span class="tok-n">A</span>
+<span class="tok-k">end</span>
 
-puts B.new.a # =&gt; hello
+<span class="tok-nb">puts</span> <span class="tok-n">B</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-o">.</span><span class="tok-n">a</span> <span class="tok-c1"># =&gt; hello</span>
 
-class C &lt; A
-  def a
-    super + " world"
-  end
-end
+<span class="tok-k">class</span> <span class="tok-nc">C</span> <span class="tok-o">&lt;</span> <span class="tok-n">A</span>
+  <span class="tok-k">def</span> <span class="tok-nf">a</span>
+    <span class="tok-k">super</span> <span class="tok-o">+</span> <span class="tok-s2">&quot; world&quot;</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-puts C.new.a # =&gt; hello world</code></pre>
+<span class="tok-nb">puts</span> <span class="tok-n">C</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-o">.</span><span class="tok-n">a</span> <span class="tok-c1"># =&gt; hello world</span></code></pre>
 </div>
 </div>
 </div>
@@ -1342,13 +1408,13 @@ some pitfalls in their inheritance.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">class A
-  def self.a
-    "hello"
-  end
-end
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">class</span> <span class="tok-nc">A</span>
+  <span class="tok-k">def</span> <span class="tok-nc">self</span><span class="tok-o">.</span><span class="tok-nf">a</span>
+    <span class="tok-s2">&quot;hello&quot;</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-puts A.a # =&gt; hello</code></pre>
+<span class="tok-nb">puts</span> <span class="tok-n">A</span><span class="tok-o">.</span><span class="tok-n">a</span> <span class="tok-c1"># =&gt; hello</span></code></pre>
 </div>
 </div>
 </div>
@@ -1362,15 +1428,15 @@ replacement of methods. However <code>with great power comes great responsibilit
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">"hello".upcase # =&gt; HELLO
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-s2">&quot;hello&quot;</span><span class="tok-o">.</span><span class="tok-n">upcase</span> <span class="tok-c1"># =&gt; HELLO</span>
 
-class String
-  def upcase
-    "*" * self.size
-  end
-end
+<span class="tok-k">class</span> <span class="tok-nc">String</span>
+  <span class="tok-k">def</span> <span class="tok-nf">upcase</span>
+    <span class="tok-s2">&quot;*&quot;</span> <span class="tok-o">*</span> <span class="tok-nb">self</span><span class="tok-o">.</span><span class="tok-n">size</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-"hello".upcase # =&gt; *****</code></pre>
+<span class="tok-s2">&quot;hello&quot;</span><span class="tok-o">.</span><span class="tok-n">upcase</span> <span class="tok-c1"># =&gt; *****</span></code></pre>
 </div>
 </div>
 </div>
@@ -1384,15 +1450,15 @@ can be included into modules or into other classes.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">class A
-  class B
-  end
-end
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">class</span> <span class="tok-nc">A</span>
+  <span class="tok-k">class</span> <span class="tok-nc">B</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-module Some
-  class Thing
-  end
-end</code></pre>
+<span class="tok-k">module</span> <span class="tok-nn">Some</span>
+  <span class="tok-k">class</span> <span class="tok-nc">Thing</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1401,16 +1467,16 @@ methods defined for that module are available in the class as instance methods.<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">module Helper
-  def something
-  end
-end
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">module</span> <span class="tok-nn">Helper</span>
+  <span class="tok-k">def</span> <span class="tok-nf">something</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-class A
-  include Helper
-end
+<span class="tok-k">class</span> <span class="tok-nc">A</span>
+  <span class="tok-kp">include</span> <span class="tok-no">Helper</span>
+<span class="tok-k">end</span>
 
-A.new.something</code></pre>
+<span class="tok-n">A</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-o">.</span><span class="tok-n">something</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1418,16 +1484,16 @@ A.new.something</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">module Helper
-  def something
-  end
-end
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">module</span> <span class="tok-nn">Helper</span>
+  <span class="tok-k">def</span> <span class="tok-nf">something</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-class A
-  extend Helper
-end
+<span class="tok-k">class</span> <span class="tok-nc">A</span>
+  <span class="tok-kp">extend</span> <span class="tok-no">Helper</span>
+<span class="tok-k">end</span>
 
-A.something</code></pre>
+<span class="tok-n">A</span><span class="tok-o">.</span><span class="tok-n">something</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1444,20 +1510,20 @@ way to get some kind of multiple inheritance.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">class A
-  def public_method
-  end
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">class</span> <span class="tok-nc">A</span>
+  <span class="tok-k">def</span> <span class="tok-nf">public_method</span>
+  <span class="tok-k">end</span>
 
-  protected
+  <span class="tok-kp">protected</span>
 
-  def protected_method
-  end
+  <span class="tok-k">def</span> <span class="tok-nf">protected_method</span>
+  <span class="tok-k">end</span>
 
-  private
+  <span class="tok-kp">private</span>
 
-  def private_method
-  end
-end</code></pre>
+  <span class="tok-k">def</span> <span class="tok-nf">private_method</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1466,17 +1532,17 @@ dynamically calling method.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">class A
-  def public_method
-  end
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">class</span> <span class="tok-nc">A</span>
+  <span class="tok-k">def</span> <span class="tok-nf">public_method</span>
+  <span class="tok-k">end</span>
 
-  private
+  <span class="tok-kp">private</span>
 
-  def private_method
-  end
-end
+  <span class="tok-k">def</span> <span class="tok-nf">private_method</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-A.new.send(:private_method)</code></pre>
+<span class="tok-n">A</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-o">.</span><span class="tok-n">send</span><span class="tok-p">(</span><span class="tok-ss">:private_method</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 </div>
@@ -1489,11 +1555,11 @@ A.new.send(:private_method)</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">class Hunter
-  def shoot(animal)
-    bang! if animal.class == Duck
-  end
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">class</span> <span class="tok-nc">Hunter</span>
+  <span class="tok-k">def</span> <span class="tok-nf">shoot</span><span class="tok-p">(</span><span class="tok-n">animal</span><span class="tok-p">)</span>
+    <span class="tok-n">bang!</span> <span class="tok-k">if</span> <span class="tok-n">animal</span><span class="tok-o">.</span><span class="tok-n">class</span> <span class="tok-o">==</span> <span class="tok-no">Duck</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1501,11 +1567,11 @@ end</code></pre>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">class Hunter
-  def shoot(animal)
-    animal.respond_to?(:quack) &amp;&amp; bang!
-  end
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">class</span> <span class="tok-nc">Hunter</span>
+  <span class="tok-k">def</span> <span class="tok-nf">shoot</span><span class="tok-p">(</span><span class="tok-n">animal</span><span class="tok-p">)</span>
+    <span class="tok-n">animal</span><span class="tok-o">.</span><span class="tok-n">respond_to?</span><span class="tok-p">(</span><span class="tok-ss">:quack</span><span class="tok-p">)</span> <span class="tok-o">&amp;&amp;</span> <span class="tok-n">bang!</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1522,13 +1588,13 @@ there is a call to undefined method on that object.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">class A
-  def method_missing(name, *args, &amp;block)
-    puts "method #{name} called with args #{args.inspect}"
-  end
-end
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">class</span> <span class="tok-nc">A</span>
+  <span class="tok-k">def</span> <span class="tok-nf">method_missing</span><span class="tok-p">(</span><span class="tok-nb">name</span><span class="tok-p">,</span> <span class="tok-o">*</span><span class="tok-n">args</span><span class="tok-p">,</span> <span class="tok-o">&amp;</span><span class="tok-n">block</span><span class="tok-p">)</span>
+    <span class="tok-nb">puts</span> <span class="tok-s2">&quot;method </span><span class="tok-si">#{</span><span class="tok-nb">name</span><span class="tok-si">}</span><span class="tok-s2"> called with args </span><span class="tok-si">#{</span><span class="tok-n">args</span><span class="tok-o">.</span><span class="tok-n">inspect</span><span class="tok-si">}</span><span class="tok-s2">&quot;</span>
+  <span class="tok-k">end</span>
+<span class="tok-k">end</span>
 
-A.new.something("a") # =&gt; method something called with args ["a"]</code></pre>
+<span class="tok-n">A</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-o">.</span><span class="tok-n">something</span><span class="tok-p">(</span><span class="tok-s2">&quot;a&quot;</span><span class="tok-p">)</span> <span class="tok-c1"># =&gt; method something called with args [&quot;a&quot;]</span></code></pre>
 </div>
 </div>
 </div>
@@ -1550,15 +1616,15 @@ in Ruby.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">string = "hello"
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-n">string</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;hello&quot;</span>
 
-def string.star
-  "*" * self.size
-end
+<span class="tok-k">def</span> <span class="tok-nc">string</span><span class="tok-o">.</span><span class="tok-nf">star</span>
+  <span class="tok-s2">&quot;*&quot;</span> <span class="tok-o">*</span> <span class="tok-nb">self</span><span class="tok-o">.</span><span class="tok-n">size</span>
+<span class="tok-k">end</span>
 
-string.star # =&gt; *****
+<span class="tok-n">string</span><span class="tok-o">.</span><span class="tok-n">star</span> <span class="tok-c1"># =&gt; *****</span>
 
-"world".star # =&gt; NoMethodError: undefined method `star' for "world":String</code></pre>
+<span class="tok-s2">&quot;world&quot;</span><span class="tok-o">.</span><span class="tok-n">star</span> <span class="tok-c1"># =&gt; NoMethodError: undefined method `star&#39; for &quot;world&quot;:String</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1585,7 +1651,7 @@ is raised, it will bubling thorugh the stack until is caught.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">raise Exception.new("Hello")</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">raise</span> <span class="tok-no">Exception</span><span class="tok-o">.</span><span class="tok-n">new</span><span class="tok-p">(</span><span class="tok-s2">&quot;Hello&quot;</span><span class="tok-p">)</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1595,13 +1661,13 @@ that is called after both exceptional and non-exceptional state.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-ruby" data-lang="ruby">begin
-  raise Exception.new
-rescue =&gt; e
-  puts e.message
-ensure
-  puts "always"
-end</code></pre>
+<pre class="pygments highlight"><code data-lang="ruby"><span class="tok-k">begin</span>
+  <span class="tok-k">raise</span> <span class="tok-no">Exception</span><span class="tok-o">.</span><span class="tok-n">new</span>
+<span class="tok-k">rescue</span> <span class="tok-o">=&gt;</span> <span class="tok-n">e</span>
+  <span class="tok-nb">puts</span> <span class="tok-n">e</span><span class="tok-o">.</span><span class="tok-n">message</span>
+<span class="tok-k">ensure</span>
+  <span class="tok-nb">puts</span> <span class="tok-s2">&quot;always&quot;</span>
+<span class="tok-k">end</span></code></pre>
 </div>
 </div>
 </div>
@@ -1609,7 +1675,7 @@ end</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-13 22:07:14 CEST
+Last updated 2016-10-14 15:40:26 CEST
 </div>
 </div>
 </body>

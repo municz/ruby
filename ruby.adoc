@@ -1,3 +1,7 @@
+:source-highlighter: pygments
+:source-language: ruby
+:doctype: book
+
 # Programming Ruby
 
 ## Instalation
@@ -18,7 +22,7 @@ simplifies the installation to the "windows standard approach".
 
 The simplest way to install Ruby on macOS is to use `homebrew` package manager
 
-[source]
+[source,bash]
 ----
 $ brew install ruby
 ----
@@ -33,7 +37,7 @@ much magic and we recommend using `rbenv` instead.
 TIP: Usually you put `ruby` and relates command on PATH so you do not need to always
 specify the whole path to the executable. With tools like `rbenv` this is done for you.
 
-[source]
+[source,bash]
 ----
 $ ruby -v
 ----
@@ -41,7 +45,7 @@ $ ruby -v
 runs Ruby and prints it's version. Simplest way to verify that your instalation
 works as expected.
 
-[source]
+[source,bash]
 ----
 $ ruby script.rb
 ----
@@ -49,7 +53,7 @@ $ ruby script.rb
 interprets the script.rb. However instead of running the script explicitly, you can
 add the shebang line to your script
 
-[source]
+[source,bash]
 ----
 #!/usr/bin/env ruby
 ----
@@ -61,7 +65,7 @@ and make it executable (`chmox +x script.rb`) and run it simply as `./script.rb`
 Ruby comes with an interactive interpreter called `irb` it allows you to enter commands
 and see results instantly.
 
-[source]
+[source,bash]
 ----
 $ irb
 ----
@@ -103,7 +107,7 @@ TypeError: String can't be coerced into Fixnum
 The type of variable is defined by value that is assigned to that variable. There is
 no explicitly type information in the code.
 
-[source, ruby]
+[source]
 ----
 a = "string"
 ----
@@ -122,7 +126,7 @@ a = "string"
 
 Basic and most explicit syntax looks like
 
-[source, ruby]
+[source]
 ----
 puts("hello world!");
 ----
@@ -130,14 +134,14 @@ puts("hello world!");
 However the parenthesis are optional in case the only one interpretation of the
 expression
 
-[source, ruby]
+[source]
 ----
 puts "hello world!";
 ----
 
 and semicolons are optional as well
 
-[source, ruby]
+[source]
 ----
 puts "hello world!"
 ----
@@ -145,7 +149,7 @@ puts "hello world!"
 String use either quotation marks `"` or apostrophes `'`. Apostrophes does not provide
 string substitution as quotations marks do.
 
-[source, ruby]
+[source]
 ----
 irb(main):001:0> a = 'Hello'
 => "Hello"
@@ -164,7 +168,7 @@ Ruby allows usage of special characted in method names. The standard is to use
 * the question mark `?` for methods that return boolean value
 * the exclamation mark `!` for methods that mutate the object
 
-[source, ruby]
+[source]
 ----
 1.even?                 # => false
 "ruby".upcase.reverse   # => 'YBUR'
@@ -177,7 +181,7 @@ In the code above the single line comment is used. It starts with hash `#` and f
 to the end of the line. In case of commenting multiple lines, it is customary to
 comment every line with single line comment.
 
-[source, ruby]
+[source]
 ----
 # you should
 # do this
@@ -194,7 +198,7 @@ However there are special syntax shorthands to create instances of special class
 
 As mentioned above String are create by quoting the charachters
 
-[source, ruby]
+[source]
 ----
 a = "string"
 b = 'string'
@@ -204,7 +208,7 @@ b = 'string'
 
 Ruby has two basic number classes `Fixnum` and `Float`.
 
-[source, ruby]
+[source]
 ----
 irb(main):001:0> a = 1
 => 1
@@ -220,7 +224,7 @@ irb(main):004:0> b.class
 
 Special value that represents "nothing" is `nil`.
 
-[source, ruby]
+[source]
 ----
 irb(main):001:0> a = nil
 => nil
@@ -233,7 +237,7 @@ values that are not considered true.
 
 As usual there is either `true` or `false`.
 
-[source, ruby]
+[source]
 ----
 irb(main):001:0> a = true
 => true
@@ -250,7 +254,7 @@ irb(main):004:0> a || b
 Arrays is an ordered sequence of values. There are no restrictions on what types can
 be in a single array.
 
-[source, ruby]
+[source]
 ----
 irb(main):001:0> ["a", 1, true]
 => ["a", 1, true]
@@ -260,7 +264,7 @@ irb(main):001:0> ["a", 1, true]
 
 Hash is a structure that maps key to a value.
 
-[source, ruby]
+[source]
 ----
 irb(main):001:0> {"a" => true, "b": false}
 => {"a"=>true, :b=>false}
@@ -289,7 +293,7 @@ coding guidelines recommend (and enforce) using `rockets` everywhere.
 
 Symbol is a keyword. It always maps to the same object instance
 
-[source, ruby]
+[source]
 ----
 irb(main):001:0> a = "a"
 => "a"
@@ -313,7 +317,7 @@ irb(main):008:0> b.object_id
 
 Methods are called by using the `.`. Operators are actually methods.
 
-[source, ruby]
+[source]
 ----
 irb(main):001:0> 3 + 3
 => 6
@@ -601,7 +605,7 @@ arr.each { |el| sum += el }
 
 Any method can accept a block and call it
 
-[source, ruby]
+[source]
 ----
 def mth
   return nil unless block_given?
@@ -719,7 +723,7 @@ puts A.a # => hello
 Ruby allows you to `open` already defined classes and change their definition including
 replacement of methods. However `with great power comes great responsibility`.
 
-[source, ruby]
+[source]
 ----
 "hello".upcase # => HELLO
 
@@ -737,7 +741,7 @@ end
 Modules are a way to organize your classes in a similar fashion to namespaces. Classes
 can be included into modules or into other classes.
 
-[source, ruby]
+[source]
 ----
 class A
   class B
@@ -753,7 +757,7 @@ end
 Module are however used as well as mixins. When module is included into class all
 methods defined for that module are available in the class as instance methods.
 
-[source, ruby]
+[source]
 ----
 module Helper
   def something
@@ -769,7 +773,7 @@ A.new.something
 
 and when used with `extend` the mehtods are included as class methods
 
-[source, ruby]
+[source]
 ----
 module Helper
   def something
@@ -790,7 +794,7 @@ way to get some kind of multiple inheritance.
 
 By default methods are `public`, explicitly methods can be made `protected` or `private`.
 
-[source, ruby]
+[source]
 ----
 class A
   def public_method
@@ -811,7 +815,7 @@ end
 The `send` method allows bypassing the privacy of a method. By itself it allows
 dynamically calling method.
 
-[source, ruby]
+[source]
 ----
 class A
   def public_method
@@ -907,7 +911,7 @@ is raised, it will bubling thorugh the stack until is caught.
 
 Exceptions are raised using the `raise` keyword
 
-[source, ruby]
+[source]
 ----
 raise Exception.new("Hello")
 ----
@@ -916,7 +920,7 @@ On the other hand when an exception needs to be caught, code block is extended w
 `rescue` statement that is called when an exception is caught and optionally `ensure`
 that is called after both exceptional and non-exceptional state.
 
-[source, ruby]
+[source]
 ----
 begin
   raise Exception.new
