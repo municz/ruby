@@ -1,0 +1,929 @@
+# Programming Ruby
+
+## Instalation
+
+### Linux
+
+TIP: Do not use prepackaged Ruby on Linux distributions.
+
+On Linux use https://github.com/rbenv/rbenv[`rbenv`] package manager with the
+https://github.com/rbenv/ruby-build[`ruby-build`] extension to install Ruby.
+
+### Windows
+
+For windows there is an installer https://rubyinstaller.org/downloads/[Ruby Installer]
+simplifies the installation to the "windows standard approach".
+
+### macOS
+
+The simplest way to install Ruby on macOS is to use `homebrew` package manager
+
+[source]
+----
+$ brew install ruby
+----
+
+in case there is a need to have multiple installations
+https://github.com/rbenv/rbenv[`rbenv`]
+is a good tool to use. Another popular tool is called `rvm` but nowadays they do too
+much magic and we recommend using `rbenv` instead.
+
+## Running Ruby
+
+TIP: Usually you put `ruby` and relates command on PATH so you do not need to always
+specify the whole path to the executable. With tools like `rbenv` this is done for you.
+
+[source]
+----
+$ ruby -v
+----
+
+runs Ruby and prints it's version. Simplest way to verify that your instalation
+works as expected.
+
+[source]
+----
+$ ruby script.rb
+----
+
+interprets the script.rb. However instead of running the script explicitly, you can
+add the shebang line to your script
+
+[source]
+----
+#!/usr/bin/env ruby
+----
+
+and make it executable (`chmox +x script.rb`) and run it simply as `./script.rb`.
+
+### Interactive Ruby
+
+Ruby comes with an interactive interpreter called `irb` it allows you to enter commands
+and see results instantly.
+
+[source]
+----
+$ irb
+----
+
+## About Ruby
+
+Ruby a programming language with following aspects
+
+### Interpreted
+
+The Ruby code is interpreted when the script is load, there is no compile phase.
+
+### Fully Object oriented
+
+In Ruby everything is an object and you send messages to those objects.
+
+### Everything is an expression
+
+Everything command in Ruby has a return value.
+
+### Atomic memory management
+
+### Strongly typed
+
+There are some implicit conversions (e.g. every object has `to_s` method to provide
+string representation) but in most cases in case you try to operate on different types
+Ruby will complain, unless such operation is explicitly provided.
+
+[source]
+----
+irb(main):001:0> 5 + "a"
+TypeError: String can't be coerced into Fixnum
+	from (irb):1:in `+'
+	from (irb):1
+----
+
+### Dynamically typed
+
+The type of variable is defined by value that is assigned to that variable. There is
+no explicitly type information in the code.
+
+[source, ruby]
+----
+a = "string"
+----
+
+## Conventions
+
+* class names are CamelCase
+* file names reflect class names in snake_case format
+* method names are snake_case
+* constants are UPPER_CASE
+* indent by 2 spaces
+* methods returning boolean values end with `?`
+* methods mutating state end with `!`
+
+## Basic syntax
+
+Basic and most explicit syntax looks like
+
+[source, ruby]
+----
+puts("hello world!");
+----
+
+However the parenthesis are optional in case the only one interpretation of the
+expression
+
+[source, ruby]
+----
+puts "hello world!";
+----
+
+and semicolons are optional as well
+
+[source, ruby]
+----
+puts "hello world!"
+----
+
+String use either quotation marks `"` or apostrophes `'`. Apostrophes does not provide
+string substitution as quotations marks do.
+
+[source, ruby]
+----
+irb(main):001:0> a = 'Hello'
+=> "Hello"
+irb(main):002:0> b = "#{a} world"
+=> "Hello world"
+irb(main):003:0> b = '#{a} world'
+=> "\#{a} world"
+----
+
+### Operator priority
+
+### Special characters in method names
+
+Ruby allows usage of special characted in method names. The standard is to use
+
+* the question mark `?` for methods that return boolean value
+* the exclamation mark `!` for methods that mutate the object
+
+[source, ruby]
+----
+1.even?                 # => false
+"ruby".upcase.reverse   # => 'YBUR'
+"ruby".size.even?       # => true
+----
+
+### Comments
+
+In the code above the single line comment is used. It starts with hash `#` and follows
+to the end of the line. In case of commenting multiple lines, it is customary to
+comment every line with single line comment.
+
+[source, ruby]
+----
+# you should
+# do this
+# to comment
+# multiple lines
+----
+
+## Data types
+
+As mentioned above in Ruby everything is an object, including arrays or numbers.
+However there are special syntax shorthands to create instances of special classes.
+
+### Strings
+
+As mentioned above String are create by quoting the charachters
+
+[source, ruby]
+----
+a = "string"
+b = 'string'
+----
+
+### Numbers
+
+Ruby has two basic number classes `Fixnum` and `Float`.
+
+[source, ruby]
+----
+irb(main):001:0> a = 1
+=> 1
+irb(main):002:0> a.class
+=> Fixnum
+irb(main):003:0> b = 1.1
+=> 1.1
+irb(main):004:0> b.class
+=> Float
+----
+
+### Empty value
+
+Special value that represents "nothing" is `nil`.
+
+[source, ruby]
+----
+irb(main):001:0> a = nil
+=> nil
+----
+
+In a boolean expression, `nil` is considered false, i.e. it's only of two possible
+values that are not considered true.
+
+### Booleans
+
+As usual there is either `true` or `false`.
+
+[source, ruby]
+----
+irb(main):001:0> a = true
+=> true
+irb(main):002:0> b = false
+=> false
+irb(main):003:0> a && b
+=> false
+irb(main):004:0> a || b
+=> true
+----
+
+### Arrays
+
+Arrays is an ordered sequence of values. There are no restrictions on what types can
+be in a single array.
+
+[source, ruby]
+----
+irb(main):001:0> ["a", 1, true]
+=> ["a", 1, true]
+----
+
+### Hashes
+
+Hash is a structure that maps key to a value.
+
+[source, ruby]
+----
+irb(main):001:0> {"a" => true, "b": false}
+=> {"a"=>true, :b=>false}
+----
+
+There are two approaches how to write the mapping, either `rocket` style
+
+[source]
+----
+key => value
+----
+
+or `json` style
+
+[source]
+----
+key: value
+----
+
+You can use both syntaxes, however with the `json` style the value is converted
+to `symbol`, so in case you need to use `String` or some other type, or get the name
+of the key from a variable, you need to use the `rocket` style. Several well-known
+coding guidelines recommend (and enforce) using `rockets` everywhere.
+
+### Symbols
+
+Symbol is a keyword. It always maps to the same object instance
+
+[source, ruby]
+----
+irb(main):001:0> a = "a"
+=> "a"
+irb(main):002:0> b = "a"
+=> "a"
+irb(main):003:0> a.object_id
+=> 70224766839340
+irb(main):004:0> b.object_id
+=> 70224750415480
+irb(main):005:0> a = :a
+=> :a
+irb(main):006:0> b = :a
+=> :a
+irb(main):007:0> a.object_id
+=> 722268
+irb(main):008:0> b.object_id
+=> 722268
+----
+
+## Objects and methods
+
+Methods are called by using the `.`. Operators are actually methods.
+
+[source, ruby]
+----
+irb(main):001:0> 3 + 3
+=> 6
+irb(main):002:0> 3.+(3)
+=> 6
+irb(main):003:0> [1,2][0]
+=> 1
+irb(main):004:0> [1,2].[](0)
+=> 1
+----
+
+## Variables
+
+Ruby has global variables prefixed by `$`.
+
+[source,ruby]
+----
+$stdout
+----
+
+Classes and object can use class variables, though there are no used very much.
+
+[source,ruby]
+----
+@@class_variables = 1
+----
+
+Objects have instance variables.
+
+[source,ruby]
+----
+@instance_variable = 1
+----
+
+Local variables have no prefix.
+
+[source,ruby]
+----
+local_variable = 1
+----
+
+And finally constants are all upper case.
+
+[source,ruby]
+----
+CONSTANT = 1
+----
+
+## Conditions
+
+Everything is considered `true` except `false` and `nil`.
+
+[source,ruby]
+----
+a = nil
+b = ""
+
+if a
+  "we do not get in here"
+elsif b
+  "we got here"
+else
+  "we did not get here"
+end
+----
+
+Ruby has negative variant to `if` called `unless`. Essentially `unless bool_expr` is
+equivalent to `if !(bool_expr)`. It is used the same way as normal `if`.
+
+[source,ruby]
+----
+a = nil
+b = ""
+
+unless a
+  "we do get in here"
+elsif b
+  "we did not get here"
+else
+  "we did not get here"
+end
+----
+
+Ruby has inline method of using conditionals called modifier statements.
+
+[source,ruby]
+----
+puts "Hello" if true
+puts "Hello" unless false
+----
+
+Ternary operator is available as well.
+
+[source,ruby]
+----
+experssion ? 'was evaluated true' : 'was evaluated false'
+----
+
+Another way to do conditions is to use `case` statement.
+
+[source,ruby]
+----
+case input
+  when 'q', 'e'
+    quit
+  when 'f'
+    format
+  else
+    help
+end
+----
+
+`Case` statement can as well check on variable class.
+
+[source,ruby]
+----
+case var
+  when String
+    "it's string"
+  when Class
+    "it's class"
+  when Number
+    "it's number"
+end
+----
+
+Another way to use `case` statement is to use it as `if` and `elsif`.
+
+[source,ruby]
+----
+case
+  when a == "a"
+    "a equals a"
+  when b == "b"
+    "b equals b"
+end
+----
+
+## Logical operators
+
+There are basic logical expressions
+
+* and `&&`
+* or `||`
+* not `!`
+
+as well `&&` can be replaced with `and`, `||` can be replaced with `or` and `!` can
+be replaced with `not`.
+
+There are basic comparison operators
+
+* equal `==`
+* not equal `!=`
+* lesser then `<`
+* greater then `>`
+* lesser then or equal `>=`
+* greater then or equal `<=`
+* regular expersion match `=~`
+
+## Regular expressions
+
+Regular expressions are enclosed with `/`. The simplest way is to use the regexp
+operator.
+
+[source,ruby]
+----
+string = 'localhost:2000'
+string =~ /.*:.+/     # 0
+string =~ /(.)*:(.)+/ # sets $1 a $2
+----
+
+as well there is a `match` method on string.
+
+[source,ruby]
+----
+data = string.match(/^(.):(\d+)$/)
+data[1] # => localhost
+data[2] # => 2000
+----
+
+## Loops
+
+`while` repeats as long as the condition is true.
+
+[source,ruby]
+----
+while a < b
+  a += 1
+end
+----
+
+To go through the body of the loop at least once
+
+[source,ruby]
+----
+begin
+  a += 1
+end while a < b
+----
+
+There is as well inline way to write the loop
+
+[source,ruby]
+----
+a += 1 while a < b
+----
+
+And finally the negative counterpart `until`
+
+[source,ruby]
+----
+until a > b
+  a += 1
+end
+----
+
+## Methods
+
+Methods in Ruby always return some value. If it is not explicitly returned using the
+`return` keyword, the return value is the value of the last expression in the method.
+Return as usual returns from method and ends the execution of the method.
+
+[source,ruby]
+----
+# Simple method with two arguments
+def mth(a, b)
+end
+
+# Method with default value for 2nd argument
+def mth(a, b=1)
+end
+
+# Method accepting any number of arguments, available as Array args
+def mth(*args)
+end
+
+# Method requiring at least two arguments
+def mth(a, b, *args)
+end
+----
+
+## Reusing code from other files
+
+The `require` method loads code from another file. Ruby keeps track of required files
+and skips loading files that would be loaded 2nd time. Files are looked up using Ruby's
+load path, which is represented using an array in `$LOAD_PATH`. The `load` method does
+not keep track of loaded files.
+
+## Blocks
+
+Blocks have many uses-cases. One of the use cases is the replacement for `for` cycles
+another use case is `anonnymous functions`. Block are not executed when defined, but
+needs to be called using the `call` method (though the calling of `call` method is
+most of the times hidden from the develop as in the example below).
+
+Arrays have method called `each` that accepts block and calls the block for every
+single element in the array.
+
+[source,ruby]
+----
+arr = [1,2,3,4]
+arr.each do |el|
+  puts el
+end
+----
+
+will print all four values to the standard output. Block have another possibility
+
+[source,ruby]
+----
+arr = [1,2,3,4]
+arr.each { |el| puts el }
+----
+
+this variant is usually used for single-line blocks.
+
+Block see their own scope plus can access scope in which were defined.
+
+[source,ruby]
+----
+sum = 0
+arr = [1,2,3,4]
+arr.each { |el| sum += el }
+----
+
+Any method can accept a block and call it
+
+[source, ruby]
+----
+def mth
+  return nil unless block_given?
+  yield
+end
+----
+
+This method will return nil if no block was given or will call the block without any
+argument and the return value of the block will be return from the method.
+
+Method may also accept blocks as a named argument which is prefixed by `&`.
+
+[source,ruby]
+----
+def mth(num,&block)
+  block.call(num)
+end
+----
+
+this method will call block saved in the variable `block` and will pass one argument
+which is the argument passed to the method itself.
+
+## Objects
+
+In Ruby everything is an object. Object is an instance of some class. Even every class
+is an instance of class that inherits from Class. Object can have methods
+
+[source,ruby]
+----
+class Hello
+  def say
+    "Hello, world!"
+  end
+end
+
+puts Hello.new.say
+----
+
+and instance variables
+
+[source,ruby]
+----
+class Hello
+  def initialize(msg=nil)
+    @msg = msg
+  end
+
+  def say
+    @msg
+  end
+end
+
+puts Hello.new("Hello, world!").say
+----
+
+To make your instance variables accessible from outside, you define them as attributes.
+Attributes can be either read-only, write-only or both.
+
+[source,ruby]
+----
+class Hello
+  attr_reader :one       # allows reading by using the .one method
+  attr_writer :two       # allows writing by using the .two = "xy" method
+  attr_accessor :three   # allows both, reading and writing
+end
+----
+
+## Inheritance
+
+Ruby allows object inheritance. All methods including constructor are inherited. Methods
+can be overridden by children. `super` is then used to call the original method.
+
+[source,ruby]
+----
+class A
+  def a
+    "hello"
+  end
+end
+
+puts A.new.a # => hello
+
+class B < A
+end
+
+puts B.new.a # => hello
+
+class C < A
+  def a
+    super + " world"
+  end
+end
+
+puts C.new.a # => hello world
+----
+
+## Class methods and attributes
+
+As known from other language, except in Ruby class variables are not used because of
+some pitfalls in their inheritance.
+
+[source,ruby]
+----
+class A
+  def self.a
+    "hello"
+  end
+end
+
+puts A.a # => hello
+----
+
+## Monkey patching
+
+Ruby allows you to `open` already defined classes and change their definition including
+replacement of methods. However `with great power comes great responsibility`.
+
+[source, ruby]
+----
+"hello".upcase # => HELLO
+
+class String
+  def upcase
+    "*" * self.size
+  end
+end
+
+"hello".upcase # => *****
+----
+
+## Modules
+
+Modules are a way to organize your classes in a similar fashion to namespaces. Classes
+can be included into modules or into other classes.
+
+[source, ruby]
+----
+class A
+  class B
+  end
+end
+
+module Some
+  class Thing
+  end
+end
+----
+
+Module are however used as well as mixins. When module is included into class all
+methods defined for that module are available in the class as instance methods.
+
+[source, ruby]
+----
+module Helper
+  def something
+  end
+end
+
+class A
+  include Helper
+end
+
+A.new.something
+----
+
+and when used with `extend` the mehtods are included as class methods
+
+[source, ruby]
+----
+module Helper
+  def something
+  end
+end
+
+class A
+  extend Helper
+end
+
+A.something
+----
+
+Ruby has only single inheritance, mixins allow to get around this and provide a
+way to get some kind of multiple inheritance.
+
+## Method access
+
+By default methods are `public`, explicitly methods can be made `protected` or `private`.
+
+[source, ruby]
+----
+class A
+  def public_method
+  end
+
+  protected
+
+  def protected_method
+  end
+
+  private
+
+  def private_method
+  end
+end
+----
+
+The `send` method allows bypassing the privacy of a method. By itself it allows
+dynamically calling method.
+
+[source, ruby]
+----
+class A
+  def public_method
+  end
+
+  private
+
+  def private_method
+  end
+end
+
+A.new.send(:private_method)
+----
+
+## Duck typing
+
+Ruby encourages to react based on behaviour rather then on identity.
+
+[source,ruby]
+----
+class Hunter
+  def shoot(animal)
+    bang! if animal.class == Duck
+  end
+end
+----
+
+in this case the code check if it's a duck and shoots it, however
+
+[source,ruby]
+----
+class Hunter
+  def shoot(animal)
+    animal.respond_to?(:quack) && bang!
+  end
+end
+----
+
+in this case we care if the animal qucks and the it's shot.
+
+## Method_missing
+
+Every object can define special `methhod_missing` method that is called whenever
+there is a call to undefined method on that object.
+
+[source,ruby]
+----
+class A
+  def method_missing(name, *args, &block)
+    puts "method #{name} called with args #{args.inspect}"
+  end
+end
+
+A.new.something("a") # => method something called with args ["a"]
+----
+
+## Metaprogramming
+
+Metaprogramming allows you to dynamically work with your program through Ruby code.
+Most of the times people use this technique for building DSL (domain specific languages)
+in Ruby.
+
+One of the most important aspects of metaprogramming is to understand what an eigenclass
+(singleton class) is.
+
+Let's start with something special. In Ruby it's possible to define per object methods.
+
+[source,ruby]
+----
+string = "hello"
+
+def string.star
+  "*" * self.size
+end
+
+string.star # => *****
+
+"world".star # => NoMethodError: undefined method `star' for "world":String
+----
+
+OK, now the question is, where is the method stored? It can not be on the String class
+as it's available only to the specific instance. And instances do not store methods,
+only classes do. And the answer is our eigenclass. The closes method to any object is
+not it's class but it's eigenclass. So, whenever you define per-object behaviour the
+method is stored in it's eigenclass.
+
+https://github.com/municz/study-materials/wiki/Lecture-02[Other material]
+
+## Exceptions
+
+Exceptions represnt a special state in the execution in a program. When an exception
+is raised, it will bubling thorugh the stack until is caught.
+
+Exceptions are raised using the `raise` keyword
+
+[source, ruby]
+----
+raise Exception.new("Hello")
+----
+
+On the other hand when an exception needs to be caught, code block is extended with
+`rescue` statement that is called when an exception is caught and optionally `ensure`
+that is called after both exceptional and non-exceptional state.
+
+[source, ruby]
+----
+begin
+  raise Exception.new
+rescue => e
+  puts e.message
+ensure
+  puts "always"
+end
+----
+
