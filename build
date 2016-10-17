@@ -1,4 +1,4 @@
 #!/bin/bash
 
-asciidoctor-pdf -a pygments-style=colorful ruby.adoc
-asciidoctor -a pygments-style=monokai ruby.adoc
+asciidoctor-pdf -a pygments-style=friendly ruby.adoc
+asciidoctor -a pygments-style=friendly ruby.adoc
