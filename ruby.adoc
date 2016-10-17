@@ -1476,6 +1476,8 @@ and for objects
 object -> SomeClass -> Object -> BasicObject
 ----
 
+image::method_lookup.svg[]
+
 Important thing about eigenclasses is that they are not visible as classes of objects.
 
 [source]
