@@ -1,58 +1,54 @@
 # Advanced Ruby
 Meta-programming, DSLs, etc.
 
-## Return statements
+## Return values
 
-In Ruby every code is executable - it is an expression. By definition an expression should have
-some return value - the result of it's execution. Let's take a look at this example
-
-[source]
-----
-class A
-end
-----
-
-What is the result of such an expression? You might say "we defined class A". But it is not. The
-fact we defined a class is only an effect of the expression but not the result, result is a value
-returned from the expression itself.
+In Ruby everything is an expression - it executes and returns some value, the result of it's execution. Let's take a
+look at a simple example
 
 [source]
 ----
-var = nil
-var.inspect # => nil
+5 + 2        # => 7
+"hello"      # => "hello"
+"a" if true  # => "a"
+"a" if false # => nil
 
-var = class A
-end
-
-var.inspect # => nil
+class A; end # => ???
 ----
 
-The value has not changed .... there is no resulting value. Wrong again! The resulting value was
-simply nil, the same value as in the variable, but it was returned.
+What is the result of the last expression? It could be obvious - "we defined class A". But not really. The fact we have
+defined a class is only an effect of the expression but not the result, result is a value returned from the expression
+itself.
 
 [source]
 ----
-var = nil
-var.inspect # => nil
-
-var = class A
-  self
-end
-
-var.inspect # => A
+class A; end # => nil
 ----
 
-In this example we get a return value. As we can see, it is a class A. How is that possible?
-Because the last line of a method is return value. Do you remember? Basically we can generalize to
+The result is simply `nil`. It's similar to the expression `"a" if false` above. The condition is evaluated as false
+and there is no `else` so there is nothing to return, so the result is `nil`. In this case a class was defined, but
+there was nothing to be return, as the body of the class was empty, so the result is `nil`. Let's modify the example to
+return a value
+
+[source]
+----
+class A; 1; end            # => 1
+class A; 1; "hello"; end   # => "hello"
+class A; self; end         # => A
+----
+
+Before it was said that the return value of a method is the result of it's last expression. And it's obvious that in
+this example it's very similar, and it can be generalized for all structures, even though sometimes it may not be
+obvious on the first sight.
 
 ----
-last line of an expression is it's return value.
+the return value is the the result of the last expression
 ----
 
 ## Context
 
-As said before, everything in executed in some context. This context is know as current object and
-is always represented by self.
+In Ruby everything is executed in some context. This context is know as `current object` and is always represented
+by self.
 
 [source]
 ----
@@ -76,8 +72,8 @@ A.new.call # => #<A:some number>
 
 ### Open classes
 
-Unlike most languages, Ruby classes are open for modifications. This way programmer can modify behavior
-of classes defined by frameworks or Ruby itself. This technique is called `Monkey patching`.
+Unlike most languages, Ruby classes are open for modifications. Developers can modify behavior of classes defined by
+frameworks or Ruby itself. This technique is called `Monkey patching`.
 
 [source]
 ----
@@ -98,55 +94,46 @@ Clazz.new.call # => "B"
 
 ### What is a class?
 
-People unfamiliar with Ruby might ask, why is the precedent example valid and the answer is simple:
+Let's start with a definition
 
 ----
 classes are instances of class Class
 ----
 
-everything in Ruby is an object ... even a class. Don't you believe me? Try this example:
+and as mentioned many times before, everything in Ruby is an object ... even a class.
 
 [source]
 ----
 class A
   def self.call
-    "called"
+    "A"
   end
 end
 
-class B
-end
+B = Class.new
 
 def B.call
   "called"
 end
 
-C = Class.new
+A.call      # => "called"
+B.call      # => "called"
 
-class C
-  def self.call
-    "called"
-  end
-end
+A.object_id # => [some number]
+B.object_id # => [some number]
 
-D = Class.new
-
-def D.call
-  "called"
-end
-
-A.call # => "called"
-B.call # => "called"
-C.call # => "called"
-D.call # => "called"
+A.class     # => Class
+B.class     # => Class
 ----
 
-In the example we defined 4 classes, with class method call that return string "called" all
-those 4 techniques are equivalent and you can mix them freely.
+Class A was defined using the `class` keyword and then a class method was defined. Class B was created by creating new
+instance of the `Class` class and the object was assigned to constant B. As both of those classes are objects, it's
+possible to check it's class and the ID of the object.
 
 ### Inheritance
 
-One class can inherit from another. Ruby has only single-class inheritance - you can not inherit from multiple classes.
+In Ruby classes can inherit from each other, though Ruby has only single-class inheritance - it's not possible to
+inherit from multiple classes, only from one.
 
 [source]
 ----
@@ -167,8 +154,9 @@ C.new.call # => "called"
 
 ### Mixins
 
-When a class needs to inherit from multiple classes, Ruby allows as to mix in multiple Modules.
-Methods of these modules are then available to the class.
+When some class needs to inherit from multiple classes, it's not possible, but Ruby provides a workaround through
+mixins. It is possible to include many Modules into a class the methods defined in those modules will become part of
+the lookup path as if they were defined in the class.
 
 [source]
 ----
@@ -185,9 +173,11 @@ end
 A.new.call # => "called"
 ----
 
-### Class name
+### Class introspections
 
-Ruby let us get the name of class by calling method name of the class.
+Ruby allows many introspections on classes and many other objects.
+
+There is method `name` defined on a class that returns the name of the current class.
 
 [source]
 ----
@@ -196,14 +186,7 @@ Array.name # => "Array"
 [].class.name # => "Array"
 ----
 
-## Methods
-
-As everything else in Ruby even methods are instances of class Method.
-
-### Inspecting methods
-
-Ruby has powerful tools to introspect object. One of the cases is the list of methods of an objects.
-The list can be obtained simple by calling method methods.
+It's possible to list methods of an object
 
 [source]
 ----
@@ -215,12 +198,14 @@ end
 A.new.methods # => array of methods
 ----
 
-What's this good for? Let's continue.
+## Methods
+
+As everything else in Ruby even methods are instances of class Method.
 
 ### Extracting methods
 
-Sometimes it might be useful to pass around only a method instead of the whole object. Ruby lets you extract a method
-for later use.
+Sometimes it is useful to pass around only a method instead of the whole object. Ruby allows extraction of a method
+for later usege.
 
 [source]
 ----
@@ -233,22 +218,25 @@ end
 meth = A.new.method(:call) # => #<Method: A#call>
 ----
 
-This example shows, that we "extracted" method call from class A. The method is bound to the instance of class A -
-the method will be evaluated in the context of the object. The method can be executed by calling call method with
-appropriate arguments.
+In the example method `call` from class `A` was "extracted". The method is still bound to the instance of class A and
+the method will be evaluated in the context of the object (`self` will be the instance). The method can be executed
+by calling the `call` method with appropriate arguments.
 
 [source]
 ----
 meth.call("some string") # => #<A:some_number>
 ----
 
-From the example is obvious, that the method is executed in the context of the object.
-
 ### Checking method existence
 
-Because Ruby is very dynamic language, we can not be always sure what type of argument we receive. Usually the
-programmer does not care what class the argument is, but whether the argument response to some method. This is
-called Duck typing technique - we do not care what the object is, we only care whether it behaves as we expect.
+Because Ruby is a very dynamic language, it's not possible to know in advance what kind of arguments will be received.
+In most cases the developer should not care what class the argument is, but whether the argument responds to a method.
+
+----
+Do not care what the object is, only care whether it behaves as expected.
+----
+
+This technique is called Duck typing.
 
 [source]
 ----
@@ -265,6 +253,8 @@ a.respond_to?(:wtf)  # => false
 
 ### Dynamic method calling
 
+Let's define a class with a method, create an instance and call the method.
+
 [source]
 ----
 class A
@@ -275,9 +265,9 @@ end
 A.new.call
 ----
 
-This example shows how to call a method, but there is one big "but". We have to know the name of the methods
-beforehand ... in the time we write the code. What if we do not the method name and we need to call it. Do not be
-surprised, this is very common use-case in Ruby. The two call to methods call are identical.
+The method is called, but the develeoper had to know the name of the method beforehand ... in the time the code is
+written. What if the method name is not known and there has to be some method called. Do not be surprised, this is
+very common use-case in Ruby.
 
 [source]
 ----
@@ -292,17 +282,51 @@ a.send(:call, "some string")
 ----
 
 Well, not so identical. When you use the send method on an object, you effectively bypass the access modifiers.
-This way a developer is allowed to call event protected or private methods.
+
+Ruby has three access levels `public` is default, `protected` and `private`.
+
+[source]
+----
+class A
+
+  def public_method
+  end
+
+  protected
+
+  def protected_method
+  end
+
+  private
+
+  def private_method
+  end
+
+end
+
+a = A.new
+
+a.public_method     # => nil
+a.protected_method  # => NoMethodError: protected method `protected_method' called ...
+a.private_method    # => NoMethodError: private method `private_method' called ...
+
+a.send(:public_method)      # => nil
+a.send(:protected_method)   # => nil
+a.send(:private_method)     # => nil
+----
 
 ### Defining methods programmatically
 
-The way to define methods shown before is not the only one. We can also define in a more programmatically way.
-It makes sense. We can inspect methods of an object, we can extract methods of an object and also call methods of
-an object in a dynamic way.
+The way to define methods using the `def` keyword shown before is not the only one. It's also possible to define
+method in a more dynamic way. It makes sense. We can inspect methods of an object, we can extract methods of an object
+and also call methods of an object in a dynamic way. To dynamically define a method use the `define_method` method of
+a class, however
 
 ----
 Class.define_method is private
 ----
+
+To get around this obstacle, it's possible to use the `send` method and bypass the access modifier.
 
 [source]
 ----
@@ -322,7 +346,7 @@ a.some_method_name # => "data"
 
 ### Missing methods
 
-Every object can define special `methhod_missing` method that is called whenever there is a call to undefined method
+Every object can define special `method_missing` method that is called whenever there is a call to undefined method
 on that object.
 
 [source]
@@ -336,21 +360,20 @@ end
 A.new.something("a") # => method something called with args ["a"]
 ----
 
-
 ## Objects
 
-What is an object? Let's simplify it ... and show you as a contrast to classes
+Objects complement classes in a way that
 
 ----
-objects define state x classes define behavior
+objects define state and classes define behavior
 ----
 
-Object are complements to classes. We define some behavior as a class, then creating an object of the class that
-holds some state. Every object has to be of some class.
+Behavior id defined as a class, then an object is created for that class to hold the state. Every object has to be of
+some class.
 
 ### Creating new object
 
-To create an object of some class it is used the method new of respective class.
+To create an object of a class there is the `new` method on respective class.
 
 [source]
 ----
@@ -362,8 +385,8 @@ dog = Dog.new
 
 ### Defining methods
 
-Previously we defined many methods in simple and fancy styles. But let's get back to the core and try to define a
-method
+In the example above many methods were defined in simple or more fancy styles. But let's get back to the core and
+try to define a method
 
 [source]
 ----
@@ -373,14 +396,14 @@ class A
 end
 ----
 
-here we use def keyword to define method. Where will def define the method? The answer is simple and complex
+here we use `def` keyword to define method `call`. Where will def define the method? The answer is simple and complex
 
 ----
-def defines method into the nearest class
+def defines methods into the nearest class
 ----
 
-So in the previous example the nearest class is A. That is obvious from next example when we inspect the self inside
-the class.
+So in the previous example the nearest class is A. That is obvious from next example where the current context is
+returned and inspected
 
 [source]
 ----
@@ -388,11 +411,10 @@ var = class A; self; end
 
 var.class  # => Class
 var.name   # => "A"
-
-A.new.call # => "string"
 ----
 
-Now let's try to define a class method.
+OK, so the the current context is a Class and thus is't obvious that the nearest class is this class. Now let's try to
+define a class method
 
 [source]
 ----
@@ -411,17 +433,23 @@ else first.
 To understand how Ruby works, we have to understand what `eigenclasses` are. Let's start with simple definition
 
 ----
-every object in Ruby has it's own eigenclass => an instance of Class (eigen means "it's own" in German)
+every object in Ruby has it's own eigenclass => an instance of Class
 ----
 
-Why is this important? Because, however the `eigenclass` is basically invisible to Ruby, it takes an important
-part in lookup paths.
+NOTE: eigen means "it's own" in German
 
-When Ruby looks up a method a program is calling, it follows a basic chain (we will talk about it a bit later).
-Important is, that before the class the object is linked to, there is the object's eigenclass. Now it is important
-that the closest class to an object is not it's class but it's eigenclass.
+Why is this important? Because, however the `eigenclasses` are basically invisible to developers, they take an important
+part in method lookups.
 
-So, back to the example we were talking about
+When Ruby is trying to look up a method, it follows a basic chain (will be described a bit later). Important is, that
+before the class the object is linked to, there is the one more class - object's eigenclass. Every single object in Ruby
+has it's own `eigenclass` and because Classes are object as well, `eigenclasses` has their own `eigenclasses` as well.
+
+----
+The closest class to an object is not it's class but it's eigenclass.
+----
+
+Back to the example we were talking about
 
 [source]
 ----
@@ -458,18 +486,18 @@ end
 A == scope # => true
 ----
 
-but back to the original question ... where are we trying to define the method? In the context of the instance of the
-class A. The important part is the instance of ... what is the closest class to instance (object)? As stated above
-it's eigenclasses. From this point you should see that
+but back to the original question ... where is the method going to be defined? In the context of the instance of the
+class A. The important part is the **instance of**. What is the closest class to an instance (object)? As stated above
+it's its eigenclass. Now you might have guessed that from implementation point of view
 
 ----
 there are no class methods in Ruby
 ----
 
-What could be called a class method is only an instance method defined on the eigenclass associated with object
-that represents the class itself.
+What would be called a class method is only an instance method defined on the eigenclass associated with object
+representing the class.
 
-So eigenclass is some stealth object that we can not see? Not really. Ruby has concept to access eigenclasses
+So eigenclass is some stealth object that we can not see? Not really. Ruby has ways to access eigenclasses
 
 [source]
 ----
@@ -480,7 +508,7 @@ end
 eigenclass = some_object.singleton_class
 ----
 
-now that we can access eigenclasses, let's see how we could define "class methods" (instance methods of eigenclass).
+now that we can access eigenclasses, let's see how we could define "class methods" (instance methods in the eigenclass).
 
 [source]
 ----
@@ -498,33 +526,10 @@ class B
   end
 end
 
-class C
-end
-
-class << C
-  def call
-    "called"
-  end
-end
-
 D = Class.new
 class << D
   def call
     "called"
-  end
-end
-
-E = Class.new
-def E.call
-  "called"
-end
-
-F = Class.new
-class F
-  class << self
-    def call
-      "called"
-    end
   end
 end
 ----
@@ -546,9 +551,13 @@ and for objects
 object -> SomeClass -> Object -> BasicObject
 ----
 
+though in real it is a bit more complex as seen in this picture
+
 image::method_lookup.svg[]
 
-Important thing about eigenclasses is that they are not visible as classes of objects.
+----
+Eigenclasses are not visible as classes of objects.
+----
 
 [source]
 ----
@@ -571,5 +580,5 @@ This example shows that having two instances of same objects. Both can behave di
 the method is stored in the eigenclass, that is not accessible by o2.
 
 ----
-Eigenclasses are used when a specific behavior of an object is expected
+Eigenclasses are used when a specific behavior of an object is expected.
 ----
