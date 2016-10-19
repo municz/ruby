@@ -5,10 +5,10 @@ most of projects are well covered. A TDD is also popular among rubyist.
 
 ## Testing frameworks
 
-Today defacto standard is to use [Minitest](https://github.com/seattlerb/minitest)
-testing framework. You can see [RSpec](http://rspec.info/) being still used too
+Today defacto standard is to use https://github.com/seattlerb/minitest[Minitest]
+testing framework. You can see http://rspec.info/[RSpec] being still used too
 but Minitest already offers the capabilities and more. Both can be easily used for
-TDD. For BDD there's popular ecosystem called [Cucumber](https://cucumber.io/) which
+TDD. For BDD there's popular ecosystem called https://cucumber.io/[Cucumber] which
 started as Ruby gem but quickly evolved into polyglot tool.
 
 ## Minitest
@@ -92,7 +92,7 @@ assert_equal @something, 'that I expect'
 ----
 
 Useful assert helpers are listed in example below. All of them can be found
-in [Minitest documentation](http://docs.seattlerb.org/minitest/Minitest/Assertions.html).
+in http://docs.seattlerb.org/minitest/Minitest/Assertions.html[Minitest documentation].
 
 [source]
 ----
@@ -113,7 +113,7 @@ Subjectively better structured, less repeating, more readable and TDD supporting
 can be used. See the following example.
 
 [source]
----
+----
 require 'minitest/autorun'
 require 'morse_coder.rb'
 
@@ -128,7 +128,7 @@ describe MorseCoder do
     specify { b.must_equal '-...' }
   end
 end
----
+----
 
 Describe block wraps logical block. Each such block can have it's own `before` (aka setup).
 With `let` we define method that can be called later within any nested block. Let is lazy.
