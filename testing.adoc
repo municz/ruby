@@ -1,4 +1,245 @@
 # Testing
-Test you code!
 
-## MiniTest
+Writing automated tests for the code is essential. Ruby community emphasizes it and
+most of projects are well covered. A TDD is also popular among rubyist.
+
+## Testing frameworks
+
+Today defacto standard is to use [Minitest](https://github.com/seattlerb/minitest)
+testing framework. You can see [RSpec](http://rspec.info/) being still used too
+but Minitest already offers the capabilities and more. Both can be easily used for
+TDD. For BDD there's popular ecosystem called [Cucumber](https://cucumber.io/) which
+started as Ruby gem but quickly evolved into polyglot tool.
+
+## Minitest
+
+A syntax you can see in tests can be in two forms. Either something we call testunit
+(aka junit) and spec that was taken from Rspec. The internal implementaion is the same
+for both and it's mostly matter of taste. However tests are regular ruby scripts that
+test other scripts. Test are usually to be found at `test/` directory, file name should
+reflect test class defined inside, e.g. morse_coder_test.rb.
+
+Example output of 
+
+### Testunit syntax
+
+[source]
+----
+require 'minitest/autorun'
+require 'morse_coder.rb'
+
+class MorseCoderTest < Minitest::Test
+  def setup
+    @coder = MorseCoder.new(...)
+  end
+
+  def test_encode_for_single_letters
+    assert_equal ".-", @coder.encode "a"
+    assert_equal "-...", @coder.encode "b"
+  end
+end
+----
+
+Test class should inherit from Minitest::Test so test helpers (assertions) are
+available. Testing methods must start with "test_". Other methods are regular
+methods that can be used from testing methods, e.g. to build some fixtures.
+
+There are few method names with special meaning. In the example you can see method
+with name `setup`. This method gets automatically executed before every testing
+method. Similarly there's `teardown` method that get's executed after each testing
+method. It's usually used for cleaning up mess the testing method created.
+
+### Assertions
+
+One testing method can contain more than one assertion. First assertion failure
+stops the method run and mark the test as failure (F). If method raises an exception
+the result of test is marked as error (E). If all assertions defined in method
+passes, test succeeds (.). If you plan to implement the test later you can skip
+the test by calling `skip("Sorry, I'm lazy")`.
+
+The simplest assertion is to test boolean value like this
+
+[source]
+----
+assert @something
+----
+
+This will succeed if @something is considered true, fail otherwise. The negative
+form is refute, e.g. following would pass.
+
+[source]
+----
+refute false
+----
+
+You could obvisouly add tests like `assert @something == 'that I expect'` but it
+would generate very generic messages on failures. You can specify custome message
+by passing extra argument like this
+
+[source]
+----
+assert @something == 'that I expect', '@something does not match expected string'
+----
+
+but it's always better to use assert helper that matches the use-case best. Following
+example demonstrates how to check equality of two values, the failure message would
+automatically include information about what's it @something and what was expected
+it to be.
+
+[source]
+----
+assert_equal @something, 'that I expect'
+----
+
+Useful assert helpers are listed in example below. All of them can be found
+in [Minitest documentation](http://docs.seattlerb.org/minitest/Minitest/Assertions.html).
+
+[source]
+----
+assert arg            # arg is true
+refute arg            # arg is false
+
+assert_equal          expected, actual
+assert_includes       collection, object
+assert_kind_of        class, object
+assert_nil            object
+assert_match          expected, actual
+assert_raises         exception_class &block
+----
+
+### Spec syntax
+
+Subjectively better structured, less repeating, more readable and TDD supporting syntax
+can be used. See the following example.
+
+[source]
+---
+require 'minitest/autorun'
+require 'morse_coder.rb'
+
+describe MorseCoder do
+  let(:coder) { MorseCoder.new(...) }
+
+  describe 'single letters encoding' do
+    let(:a) { coder.a }
+    let(:b) { coder.b }
+
+    specify { a.must_equal '.-' }
+    specify { b.must_equal '-...' }
+  end
+end
+---
+
+Describe block wraps logical block. Each such block can have it's own `before` (aka setup).
+With `let` we define method that can be called later within any nested block. Let is lazy.
+`specify` accepts a lock that uses assertion helpers in form of `must_$assert` or 
+`wont_$assert`. There are many other extensions to this language so it reads more naturally.
+
+Note that since the implementation is the same, you can combine both at the same time.
+
+### Output of test run
+
+----
+Run options: --seed 25127
+
+# Running tests:
+
+..S.....F........
+
+Finished tests in 101.524752s, 6.4319 tests/s, 9.0618 assertions/s
+63 tests, 92 assertions, 1 failures, 0 errors, S skips
+
+  1) Failure:
+TestConnector#test_connection [./connector.rb:5]:
+Expected: nil
+  Actual: "that I expect"
+----
+
+The seed is random number representing the order of test. Note that your tests should
+be order indpenendant.
+
+### Stubbing
+
+Sometimes we don't want to call all method chain when we test just single method behavior.
+This applies especially in unit testing where we test just small piece of code. Since Ruby
+is dynamic language, it's easy to cut off some methods. This is called stubbing (leaving
+stubs).
+
+Let's look at following example
+
+[source]
+----
+class TemperatureMeter
+  def measure(output)
+    temp = rand(21) + 20
+    output.puts temp
+    temp
+  end
+end
+----
+
+The test covering this should call method measure and verify it returns reasonable
+temperature. We don't want our test to print anything to STDOUT. We can stub out
+puts method easily like this
+
+[source]
+----
+def test_measure
+  meter = TemperatureMeter.new
+  STDOUT.stub(:puts, nil) do
+    result = meter.measure(STDOUT)
+    assert_kind_of Fixnum, result
+    assert_includes 20..40, result
+  end
+end
+----
+
+With this stubbing, `puts` method is replaced by new empty method that returns
+the second argument, in this case `nil`. The stub is applied only within the
+stub block.
+
+### Mocking
+
+Mocking is related to stubbing. Imagine we wanted to check that measure method
+really called puts on output object. The method is written in a way that it
+accepts custom output object, which makes testing easy. We can simply pass
+any object that implements method `puts`, e.g. file handler, socket or our
+own testing object. Or we can use mocks. Mock is a blank object on which we
+can define expectations.
+
+For example we can create a mock instance and specify that its method puts
+should be called exactly once during the test.
+
+[source]
+----
+def test_measure_print_the_value
+  meter = TemperatureMeter.new
+  mock = Minitest::Mock.new
+  mock.expect(:puts, nil, [20..40])
+  result = meter.measure(mock)
+  mock.verify
+end
+----
+
+First `expect` argument is the name of method to be called, second is the return
+value and third is the array containing arguments which the puts should be called.
+
+You could also stub the `rand` method to return let's say `0` and then setup
+expectation that mock's `puts` method will receive `20` as a parameter to print.
+But the range also works so the mock accepts any value between `20` and `40`.
+
+You have to call verify on mock so it runs assertions on how many times the expected
+method was called. To expect another call of puts, just define new expectation with
+`.expect`.
+
+### Stubbing network calls
+
+TODO
+
+### Testing web applications
+
+TODO
+
+### Cucumber
+
+TODO
