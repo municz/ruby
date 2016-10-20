@@ -5,7 +5,7 @@ most of projects are well covered. A TDD is also popular among rubyist.
 
 ## Testing frameworks
 
-Today defacto standard is to use https://github.com/seattlerb/minitest[Minitest]
+Today de facto standard is to use https://github.com/seattlerb/minitest[Minitest]
 testing framework. You can see http://rspec.info/[RSpec] being still used too
 but Minitest already offers the capabilities and more. Both can be easily used for
 TDD. For BDD there's popular ecosystem called https://cucumber.io/[Cucumber] which
@@ -234,12 +234,140 @@ method was called. To expect another call of puts, just define new expectation w
 
 ### Stubbing network calls
 
-TODO
+If your app communicates with external services over HTTP you most likely need to fake
+the communication in your test suite. Reasons include performance, spamming of remote
+services, avoiding credentials leaks, error state testing. Constructing the whole net/http
+response object can be complicated. Luckily there are tools that can help you greatly.
+
+First is https://github.com/bblimke/webmoc[webmock gem]. It provides helpers to stub
+low-level methods easily. To use it, install the gem and just add following to your tests.
+
+[source]
+----
+require 'webmock/minitest'
+stub_request(:get, 'www.example.com')
+
+Net::HTTP.get('www.example.com', '/') # this will succeed
+----
+
+You can also specify more conditions to match the request as well as return value
+
+[source]
+----
+stub_request(:post, 'www.example.com').with(:body => 'ping').to_return(:body => 'pong')
+----
+
+Custome headers can be added too. Webmock works with higl level libraries such as popular
+https://github.com/rest-client/rest-client[Restclient gem].
+
+Another useful tool is https://github.com/vcr/vcr[vcr]. The name was chosen because of analogy with https://en.wikipedia.org/wiki/Videocassette_recorder[videocassette recorder]. It can record a real network communication and replay it later. This can be
+nicely used in tests. You only record the communication once during writing tests and replay
+it while running tests in future or on CI server. You can have multiple communications recorded
+and just swap cassetes for each test. Example follows
+
+[source]
+----
+require 'vcr'
+
+VCR.configure do |config|
+  config.cassette_library_dir = "fixtures/vcr_cassettes"   # storage for cassetes
+  config.hook_into :webmock                                # webmock integration
+end
+
+class VCRTest < Minitest::Test
+  def test_example_dot_com
+    VCR.use_cassette("success_info") do
+      response = Net::HTTP.get_response(URI('http://www.example.com/'))
+      assert_match /Example Domain/, response.body
+    end
+  end
+end
+----
 
 ### Testing web applications
 
-TODO
+If you work on web app  you can also easily test the interaction like users
+will interact through  web browser. This is useful when you write integration
+tests. A de facto standard is https://github.com/jnicklas/capybara[capybara]
+gem that provides drivers for various browser backends. The simplest to setup
+driver is RackTest, so you can start with it as long as your app uses https://rack.github.io/[rack].
+
+If you need advanced stuff like testing pages with asynchronous requests through
+AJAX you can use Selenium driver which runs firefox in headless mode. If you want
+to run such tests on CI server without X11 server, there's Poltergeist driver
+using PhantomJS.
+
+An example of simple test, supposing my_app.rb contains rack based app (e.g. using http://www.sinatrarb.com/[Sinatra]).
+
+[source]
+----
+require 'minitest/autorun'
+require 'capybara/dsl'
+require './my_app.rb'
+
+Capybara.app = MyApp
+Capybara.default_driver = :rack_test
+
+class MyAppTest < Minitest::Test
+  include Capybara::DSL
+
+  def test_index
+    visit '/'
+    click_link 'login'
+    fill_in('Login', with: 'Marek')
+    fill_in('Password', with: 'secret')
+    click_button('Submit')
+
+    assert page.has_selector('div p.success')
+    assert page.has_content?('Welcome Marek')
+  end
+
+  def teardown
+    Capybara.reset_sessions!
+    Capybara.use_default_driver
+  end
+end
+----
 
 ### Cucumber
 
-TODO
+We can use https://cucumber.io/[Cucumber] framework for BDD aproach. It allows us
+to write the behavior specification in natural language first and then convert it
+to test step by step. Imagine you'd describe a feature like this
+
+----
+Feature: logout of logged in user
+
+  Scenario: User can log out from app
+    Given I'm logged in as user ares
+      And I'm on host list page
+    When I click logout link
+    Then I should see logout notification
+----
+
+It's a valid cucumber test (aka feature) which only needs implementing those steps,
+usign capybara for example.
+
+[source]
+----
+Given(/^I'm logged in as user (.*)$/) do |user|
+  visit '/'
+  fill_in "login", with: user
+  fill_in "password", with: 'testpassword'
+  click_button 'login'
+end
+
+Given(/^I'm on (.*) (.*) page$/) do |resource, action|
+  visit "/#{resource}/#{action}"
+end
+
+When(/^I click (.*) link$/) do |identifier|
+  click_link identifier
+end
+
+Then(/^I should see logout notification$/) do
+  assert page.has_content 'div p.logout_notification'
+end
+----
+
+One advantage that it brigns is, that your tests are live documentation too.
