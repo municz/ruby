@@ -151,12 +151,69 @@ Finished tests in 101.524752s, 6.4319 tests/s, 9.0618 assertions/s
 
   1) Failure:
 TestConnector#test_connection [./connector.rb:5]:
-Expected: nil
+  Expected: nil
   Actual: "that I expect"
 ----
 
 The seed is random number representing the order of test. Note that your tests should
 be order indpenendant.
+
+### Running multiple test files
+
+It's common to have more than just one test file in project. To run all tests at once
+we can use Rake. Usually tests are put in `test` directory in the project tree structure.
+In such setup we can easily define test task in Rakefile. Rake provides built-in
+class for this, we just need to configure it. Just put following into your Rakefile.
+
+[source]
+----
+require 'rake/testtask'
+
+Rake::TestTask.new do |t|
+  t.libs << 'test'
+  t.test_files = Dir.glob('test/**/*_test.rb')
+  t.verbose true
+end
+----
+
+we can run `rake test` which will load a run all ruby scripts with `_test` suffix in
+the test directory including all of its subdirectories. If you prefer test to be the
+default rake task, add following to the Rakefile
+
+[source]
+----
+task :default => [ :test ]
+----
+
+now you can run all tests just by running `rake`.
+
+Another common practise is to have one file that is loaded at start, usually
+named test_helper.rb. This file contains everything that is needed for all
+tests, like requiring additional testing libraries. You can also put 
+`require minitest/autorun` there. Just note that you need to `require 'test_helper'`
+as first line of every test file.
+
+### Test coverage
+
+To get a good overview of what needs test coverage it's useful to setup code
+coverage check. A https://github.com/colszowka/simplecov[simplecov] gem can
+generate html report. Just put following on top of you test_helper.rb
+
+[source]
+----
+require 'simplecov'
+SimpleCov.start
+----
+
+you can also define a minimum coverage in percents
+
+[source]
+----
+SimpleCov.minimum_coverage 95
+----
+
+Now when you run your test suite, new directory called `coverage` will be created.
+See `coverage/index.html` for details how well your code is covered with tests.
 
 ### Stubbing
 
