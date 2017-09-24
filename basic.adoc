@@ -816,7 +816,7 @@ class Hunter
 end
 ----
 
-in this case the code check if it's a duck and shoots it, however
+in this case the code checks if it's a duck and shoots it, however
 
 [source]
 ----
@@ -827,7 +827,7 @@ class Hunter
 end
 ----
 
-in this case we care if the animal qucks and the it's shot.
+in this case we care if the animal quacks and the it's shot.
 
 ## Exceptions
 
