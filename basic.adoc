@@ -838,20 +838,27 @@ Exceptions are raised using the `raise` keyword
 
 [source]
 ----
-raise Exception.new("Hello")
+raise "This is not expected"
 ----
 
 On the other hand when an exception needs to be caught, code block is extended with
 `rescue` statement that is called when an exception is caught and optionally `ensure`
-that is called after both exceptional and non-exceptional state.
+that is called after both exceptional and non-exceptional state. Unless an exception
+class is specified explicitly after the `rescue` keyword, the `StandardError` class
+and it's ancestors are rescued.
 
 [source]
 ----
 begin
-  raise Exception.new
+  raise "This is not expected"
 rescue => e
   puts e.message
 ensure
   puts "always"
 end
 ----
+
+IMPORTANT: Don't inherit directly from `Exception` class but use
+`StandardError` instead. The direct descendants of `Exception` are
+usually exceptions one doesn't want to rescue from, such as
+`SystemExit` or `NoMemoryError`.
