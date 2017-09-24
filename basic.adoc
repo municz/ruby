@@ -333,7 +333,9 @@ Ruby has global variables prefixed by `$`.
 $stdout
 ----
 
-Classes and object can use class variables, though there are no used very much.
+Classes and object can use class variables, though there are not used
+very much. Prefer `@instance_variables` in class-level methods, as
+they have more predicatable behavior.
 
 [source]
 ----
