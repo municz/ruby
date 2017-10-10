@@ -6,7 +6,7 @@
 :sectnums:
 
 = Programming Ruby
-Marek Hulán; Marek Jelen; Ivan Nečas
+Marek Hulán; Marek Jelen; Ivan Nečas; Honza Mayer
 v0.1, October 14, 2016: First incarnation
 
 include::basic.adoc[]
@@ -18,3 +18,5 @@ include::testing.adoc[]
 include::stdlib.adoc[]
 
 include::ror.adoc[]
+
+include::cwk.adoc[]

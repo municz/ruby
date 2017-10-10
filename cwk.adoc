@@ -1,0 +1,132 @@
+# Common web knowledge
+Stuff each of us should know ...
+
+
+## Basic terms
+
+Data
+
+* SQL - https://en.wikipedia.org/wiki/SQL[wiki]
+* CRUD - https://en.wikipedia.org/wiki/Create,_read,_update_and_delete[wiki]
+
+API
+
+* REST API - https://en.wikipedia.org/wiki/Representational_state_transfer[Basic stuff]
+* Try twitter API in https://apigee.com/console/twitter[twitter api console]
+* https://www.getpostman.com/[Postman] - Use to test apies
+
+Global interprete lock - https://en.wikipedia.org/wiki/Global_interpreter_lock[GIL]
+
+Regular expressions and http://rubular.com/[Rubular] to test them
+
+https://en.wikipedia.org/wiki/NoSQL[NoSQL]
+
+* ElasticSearch
+* RedisDB
+* MongoDB
+* ...
+
+
+## Basic technologies
+
+https://msdn.microsoft.com/en-us/commandline/wsl/install_guide[Windows Linux Subsystem]
+
+* Use to run Linux if you are Windows user.
+
+
+
+SQL Databases
+
+* MySQL
+* MariaDB
+* PostgreSQL
+* SQLite
+
+
+vim
+
+* Don't use mouse - seriously
+* Use vim! Just do!
+* janus - https://github.com/carlhuda/janus 
+* http://vim-adventures.com/
+
+
+Better use of shells
+
+* zsh
+** oh-my-zsh
+* fish
+** oh-my-fish
+* screen
+* tmux
+
+
+Ruby debug
+
+* irb
+* pry
+** binding.pry
+
+
+More rubies on one machine
+
+* rvm
+* rbenv
+
+
+Use gems
+
+* gems
+** Make your life easier, use gems!
+** https://rubygems.org/
+* bundler - use for each project to run different versions of gems
+** Gemfile
+** bundle install
+** bundle exec
+* rake - `make` for ruby
+
+
+Scrape web
+
+* Curl
+** Curb
+* Open-uri
+** Open-uri-cached
+* Tor
+
+
+Use ssh
+
+* port tunneling
+* key login
+
+
+Web technologies
+
+* HTML
+** Make your life easier
+** ERB - https://apidock.com/ruby/ERB
+** HAML - http://haml.info/
+** SLIM - the best one - http://slim-lang.com/
+* CSS
+** Make your life easier
+** SASS - http://sass-lang.com/
+** LESS - http://lesscss.org/
+* Design
+** Make your life easier
+** Bootstrap - http://getbootstrap.com/
+** Material - http://materializecss.com/
+** PatternFly - http://www.patternfly.org/
+
+Don't use
+
+* PHP
+
+
+Javascript
+
+* ECMAScript
+* AJAX
+* CoffeScript
+* jQuery, Angular, React, ...
+
